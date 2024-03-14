@@ -108,10 +108,10 @@ const CharacterPartSelector: React.FC<Props> = ({
       </div>
       {activeIndex !== null && activeIndex === selected && (
         <div
-          className={`absolute ${dropdownPosition} mt-2 max-h-48 w-[150px] md:w-[350px] overflow-x-auto overflow-y-scroll rounded-md shadow-lg bg-[#222222] ring-1 ring-black ring-opacity-5 focus:outline-none z-10`}
+          className={`absolute ${dropdownPosition} mt-1 max-h-48 w-full overflow-x-auto overflow-y-scroll rounded-md shadow-md bg-[#f5f5f5] ring-1 ring-black ring-opacity-5 focus:outline-none z-10`}
         >
           <div
-            className="py-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2"
+            className=" grid grid-cols-1 border border-gray-400"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu"
@@ -123,14 +123,14 @@ const CharacterPartSelector: React.FC<Props> = ({
                   onSelect(part.id);
                   setIsOpen(null);
                 }}
-                className={`flex items-center gap-2 cursor-pointer hover:bg-[#333333] transition duration-150 ease-in-out p-4`}
+                className={`flex items-center gap-2 cursor-pointer border-b border-black hover:bg-[#333333] transition duration-150 ease-in-out p-2`}
                 role="menuitem"
               >
                 <Image
                   src={part.image}
                   alt={part.name}
-                  width={45}
-                  height={45}
+                  width={35}
+                  height={35}
                 />
                 <span className="text-xs text-gray-300">{part.name}</span>
               </div>

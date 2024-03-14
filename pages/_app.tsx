@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main>
+    <main className="bg-[url('../public/gradient.png')] bg-cover">
       <Navbar />
       <Component {...pageProps} />
       <Footer />

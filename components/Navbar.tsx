@@ -12,7 +12,7 @@ const Navbar = () => {
   
 
   return (
-    <nav className="absolute xl:fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none bg-[#f5f5f5]">
+    <nav className="absolute xl:fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none ">
       <div className={`${inter.className} text-black text-3xl`}>JORLPS</div>
       <div className="flex items-center">
         

@@ -107,6 +107,7 @@ const CharacterPreview: React.FC<Props> = ({
               layout="fill"
               objectFit="responsive"
               quality={80}
+              
               className="border border-1 border-black"
             />
           );

@@ -56,7 +56,7 @@ const Home: NextPage = () => {
   const previewRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5] xs:mt-20 flex flex-col items-center">
+    <div className="min-h-screen  xs:mt-20 flex flex-col items-center">
       <div className=" max-w-screen-lg w-full my-auto  px-4 z-10">
         <div className="flex flex-col md:flex-row p-6 pt-8 bg-[#eeede9] my-14 border border-gray-600 rounded-lg shadow-sm gap-4">
           <div className="w-full md:w-5/12 flex justify-center">
