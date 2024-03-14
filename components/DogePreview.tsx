@@ -92,7 +92,7 @@ const CharacterPreview: React.FC<Props> = ({
 
   return (
     <div>
-      {loading && <LoadingSpinner />}
+      {loading}
       <div
         className={`relative mx-auto h-[300px] w-[300px] md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none rounded-sm shadow-sm mb-2 ${
           loading && "opacity-30 shadow-inner"
