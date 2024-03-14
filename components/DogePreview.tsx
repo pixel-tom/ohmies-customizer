@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import NextImage from "next/image";
 import { CharacterParts, SelectedCharacterParts } from "../types";
 import { characterParts } from "@/data";
-import DownloadIcon from '@mui/icons-material/Download';
-import ShuffleIcon from '@mui/icons-material/Shuffle';
+import DownloadIcon from "@mui/icons-material/Download";
+import ShuffleIcon from "@mui/icons-material/Shuffle";
 
 const LoadingSpinner = () => {
   return (
@@ -35,7 +35,7 @@ const CharacterPreview: React.FC<Props> = ({
       const context = canvas.getContext("2d");
       const selectedPartKeys = Object.keys(selectedParts);
       if (selectedPartKeys.length === 0) return; // No selected parts
-    
+
       const imagePromises = selectedPartKeys.map((category) => {
         const part = selectedParts[category];
         return new Promise<HTMLImageElement>((resolve, reject) => {
@@ -48,16 +48,16 @@ const CharacterPreview: React.FC<Props> = ({
           image.src = part.image;
         });
       });
-    
+
       try {
-        Promise.all(imagePromises).then(images => {
+        Promise.all(imagePromises).then((images) => {
           canvas.width = images[0].width;
           canvas.height = images[0].height;
-    
+
           images.forEach((image) => {
             context?.drawImage(image, 0, 0);
           });
-    
+
           canvas.toBlob((blob) => {
             if (blob) {
               const url = URL.createObjectURL(blob);
@@ -94,7 +94,9 @@ const CharacterPreview: React.FC<Props> = ({
     <div>
       {loading && <LoadingSpinner />}
       <div
-        className={`relative mx-auto h-[300px] w-[300px] md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none rounded-sm shadow-sm mb-2 ${loading && 'opacity-30 shadow-inner'}`}
+        className={`relative mx-auto h-[300px] w-[300px] md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none rounded-sm shadow-sm mb-2 ${
+          loading && "opacity-30 shadow-inner"
+        }`}
         ref={previewRef}
       >
         {Object.keys(selectedParts).map((category) => {
@@ -107,7 +109,6 @@ const CharacterPreview: React.FC<Props> = ({
               layout="fill"
               objectFit="responsive"
               quality={80}
-              
               className="border border-1 border-black"
             />
           );
@@ -116,17 +117,20 @@ const CharacterPreview: React.FC<Props> = ({
       <div className="flex justify-center">
         <button
           onClick={handleRandomize}
-          className="bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-sm py-3 px-6 rounded mt-4 mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-xs py-3 px-6 rounded mt-4 mb-4 mx-2"
         >
-          <ShuffleIcon className="h-5 w-5 mr-2"/>
-          RANDOMIZE
+          <ShuffleIcon className="my-auto h-5 w-5 mr-2" />
+          <p className="my-auto">
+            RANDOMIZE
+          </p>
+          
         </button>
         <button
           onClick={handleDownload}
-          className="bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-sm py-3 px-6 rounded mt-4 mb-4 mx-2"
+          className=" flex flex-row bg-none border  border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-xs py-3 px-6 rounded mt-4 mb-4 mx-2"
         >
-          <DownloadIcon className="h-5 w-5 mr-2"/>
-          DOWNLOAD
+          <DownloadIcon className="my-auto h-5 w-5 mr-2" />
+          <p className="my-auto">DOWNLOAD</p>
         </button>
       </div>
     </div>
