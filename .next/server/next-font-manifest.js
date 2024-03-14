@@ -1,0 +1,13 @@
+self.__NEXT_FONT_MANIFEST={
+  "pages": {
+    "/_app": [
+      "static/media/41e7ce1ad66c1045-s.p.woff2"
+    ],
+    "/": [
+      "static/media/41e7ce1ad66c1045-s.p.woff2"
+    ]
+  },
+  "app": {},
+  "appUsingSizeAdjust": false,
+  "pagesUsingSizeAdjust": true
+}
