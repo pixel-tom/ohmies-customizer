@@ -5,7 +5,6 @@ import { characterParts } from "@/data";
 import DownloadIcon from '@mui/icons-material/Download';
 import ShuffleIcon from '@mui/icons-material/Shuffle';
 
-// Loading spinner component
 const LoadingSpinner = () => {
   return (
     <div className="absolute top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -30,7 +29,6 @@ const CharacterPreview: React.FC<Props> = ({
   const handleDownload = async () => {
     setLoading(true);
 
-    // Simulate asynchronous download process
     setTimeout(() => {
       setLoading(false);
       const canvas = document.createElement("canvas");
@@ -74,13 +72,12 @@ const CharacterPreview: React.FC<Props> = ({
       } catch (error) {
         console.error("Image download failed:", error);
       }
-    }, 1000);
+    }, 750);
   };
 
   const handleRandomize = () => {
     setLoading(true);
 
-    // Simulate asynchronous randomization process
     setTimeout(() => {
       setLoading(false);
       const newSelectedParts: SelectedCharacterParts = {};
@@ -90,12 +87,12 @@ const CharacterPreview: React.FC<Props> = ({
         newSelectedParts[category as keyof CharacterParts] = parts[randomIndex];
       }
       onRandomize(newSelectedParts);
-    }, 1000);
+    }, 750);
   };
 
   return (
     <div>
-      {loading && <LoadingSpinner />} {/* Show loading spinner when loading */}
+      {loading && <LoadingSpinner />}
       <div
         className={`relative mx-auto h-[300px] w-[300px] md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none rounded-sm shadow-sm mb-2 ${loading && 'opacity-30 shadow-inner'}`}
         ref={previewRef}

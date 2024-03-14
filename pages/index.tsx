@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import { useState, useRef } from "react";
 import { characterParts } from "../data";
-import Navbar from "../components/Navbar";
 import CharacterPartSelector from "../components/DogeTraitSelector";
 import CharacterPreview from "../components/DogePreview";
 import {
@@ -57,8 +56,8 @@ const Home: NextPage = () => {
   const previewRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5] flex flex-col items-center">
-      <div className=" max-w-screen-lg w-full my-auto px-4 z-10">
+    <div className="min-h-screen bg-[#f5f5f5] xs:mt-20 flex flex-col items-center">
+      <div className=" max-w-screen-lg w-full my-auto  px-4 z-10">
         <div className="flex flex-col md:flex-row p-6 pt-8 bg-[#eeede9] my-14 border border-gray-600 rounded-lg shadow-sm gap-4">
           <div className="w-full md:w-5/12 flex justify-center">
             <CharacterPreview
@@ -74,7 +73,7 @@ const Home: NextPage = () => {
             <div className="w-full grid grid-cols-2 gap-3 p-3 mx-auto">
               {Object.keys(characterParts).map((category) => (
                 <div key={category} className="space-y-1">
-                  <h2 className="text-sm text-gray-800">{category}</h2>
+                  <h2 className="text-xs font-semibold text-gray-800">{category}</h2>
                   <CharacterPartSelector
                     parts={characterParts[category as keyof CharacterParts]}
                     selected={

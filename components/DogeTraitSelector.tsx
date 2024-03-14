@@ -42,14 +42,13 @@ const CharacterPartSelector: React.FC<Props> = ({
       const rect = selectorRef.current.getBoundingClientRect();
       const spaceBelow = window.innerHeight - rect.bottom;
       const spaceAbove = rect.top;
-      const dropdownHeight = 260; // Adjust this value as needed
+      const dropdownHeight = 260;
 
       if (spaceBelow >= dropdownHeight || spaceBelow >= spaceAbove) {
         return "origin-top-right";
       } else if (spaceAbove >= dropdownHeight) {
         return "origin-bottom-right";
       } else {
-        // Determine if the dropdown can fit within the viewport by comparing its height with available space
         const spaceAbovePercentage = spaceAbove / window.innerHeight;
         const spaceBelowPercentage = spaceBelow / window.innerHeight;
 
@@ -86,7 +85,7 @@ const CharacterPartSelector: React.FC<Props> = ({
               </div>
               
             )}
-            <span className="ml-3 text-sm">
+            <span className="ml-3 text-gray-500 text-xs">
               {selectedPart ? selectedPart.name : "Select part"}
             </span>
           </div>
