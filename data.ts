@@ -3,8 +3,8 @@ import { CharacterParts } from './types';
 
 export const characterParts: CharacterParts = {
   type: [
-    { id: 0, name: 'Light', image: '/assets/type/light.png' },
-    { id: 1, name: 'Dark', image: '/assets/type/dark.png' },
+    { id: 0, name: 'Light', image: '/type/light.png' },
+    { id: 1, name: 'Dark', image: '/type/dark.png' },
   ],
   hats: [
     { id: 0, name: 'None', image: '/assets/hats/none.png' },
