@@ -1,45 +1,233 @@
 // data.ts
-import { CharacterParts } from './types';
+import { CharacterParts } from "./types";
 
 export const characterParts: CharacterParts = {
+  background: [
+    {
+      id: 0,
+      name: "Blue",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/blue.png",
+    },
+    {
+      id: 1,
+      name: "Mint",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/mint.png",
+    },
+    {
+      id: 2,
+      name: "Gray",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/gray.png",
+    },
+    {
+      id: 3,
+      name: "Salmon",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/salmon.png",
+    },
+    {
+      id: 4,
+      name: "Purple",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/purple.png",
+    },
+    {
+      id: 5,
+      name: "Yellow",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/yellow.png",
+    },
+  ],
   type: [
-    { id: 0, name: 'Light', image: '/type/light.png' },
-    { id: 1, name: 'Dark', image: '/type/dark.png' },
+    {
+      id: 0,
+      name: "Gold",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/gold.png",
+    },
+    {
+      id: 1,
+      name: "Ice",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/ice.png",
+    },
+    {
+      id: 2,
+      name: "Nude",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/nude.png",
+    },
+    {
+      id: 3,
+      name: "Ruby",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/ruby.png",
+    },
+    {
+      id: 4,
+      name: "Solana",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/solana.png",
+    },
+    {
+      id: 5,
+      name: "Underworld",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/underworld.png",
+    },
+    {
+      id: 6,
+      name: "Scar",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/scar.png",
+    },
+    {
+      id: 7,
+      name: "Zombie",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/zombie.png",
+    },
   ],
   hats: [
-    { id: 0, name: 'None', image: '/hats/none.png' },
-    { id: 1, name: 'Blue Hat', image: '/hats/blue-hat.png' },
+    { id: 0, name: "None", image: "/hats/none.png" },
+    {
+      id: 1,
+      name: "Ref",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/ref.png",
+    },
+    {
+      id: 2,
+      name: "Hero",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/hero.png",
+    },
+    {
+      id: 3,
+      name: "Dark Cloak",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/dark-cloak.png",
+    },
+    {
+      id: 4,
+      name: "Casual",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/casual.png",
+    },
+    {
+      id: 5,
+      name: "Black Belt",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/black-belt.png",
+    },
+    {
+      id: 6,
+      name: "High Roller",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/high-roller.png",
+    },
+    {
+      id: 7,
+      name: "Hacker Hoodie",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/hacker-hoodie.png",
+    },
+    {
+      id: 8,
+      name: "School",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/school.png",
+    },
+    {
+      id: 9,
+      name: "Sheriff",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/sheriff.png",
+    },
+    {
+      id: 10,
+      name: "Jumpsuit",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/jumpsuit.png",
+    },
+    {
+      id: 11,
+      name: "Naruto",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/naruto.png",
+    },
+    {
+      id: 12,
+      name: "Wizard Cloak",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/wizard-cloak.png",
+    },
   ],
   bottoms: [
-    { id: 0, name: 'None', image: '/bottoms/none.png' },
-    { id: 1, name: 'Blue Shorts', image: '/bottoms/blue-shorts.png' },
-    { id: 2, name: 'Black Shorts', image: '/bottoms/black-shorts.png' },
-    { id: 3, name: 'Gray Shorts', image: '/bottoms/gray-shorts.png' },
-    { id: 4, name: 'Red Shorts', image: '/bottoms/red-shorts.png' },
-    { id: 5, name: 'JGMI Shorts', image: '/bottoms/jgmi-shorts.png' },
-    { id: 6, name: 'Green Shorts', image: '/bottoms/green-shorts.png' },
+    { id: 0, name: "None", image: "/bottoms/none.png" },
+    {
+      id: 1,
+      name: "Bandana",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/bandana.png",
+    },
+    {
+      id: 2,
+      name: "Black Bowl Hat",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/black-bowl-hat.png",
+    },
+    {
+      id: 3,
+      name: "Black Cap",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/black-hat.png",
+    },
+    {
+      id: 4,
+      name: "Chad",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/chad.png",
+    },
+    {
+      id: 5,
+      name: "Halo",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/halo.png",
+    },
+    {
+      id: 6,
+      name: "Hightop",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/hightop.png",
+    },
+    {
+      id: 7,
+      name: "Naruto Hair",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/naruto-hair.png",
+    },
+    {
+      id: 8,
+      name: "Red Backwards Cap",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/red-backwards-cap.png",
+    },
+    {
+      id: 9,
+      name: "Sheriff Hat",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/sheriff-hat.png",
+    },
+    {
+      id: 10,
+      name: "Wizard Hat",
+      image:
+        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/wizard-hat.png",
+    },
   ],
-  tops: [
-    { id: 0, name: 'None', image: '/tops/none.png' },
-    { id: 1, name: 'Black Hoodie', image: '/tops/black-hoodie.png' },
-    { id: 2, name: 'Blue Hoodie', image: '/tops/blue-hoodie.png' },
-    { id: 3, name: 'Gray Hoodie', image: '/tops/gray-hoodie.png' },
-    { id: 4, name: 'Red Hoodie', image: '/tops/red-hoodie.png' },
-    { id: 5, name: 'JGMI Hoodie', image: '/tops/purple-jgmi-hoodie.png' },
-    { id: 6, name: 'Blue Shirt', image: '/tops/blue-shirt.png' },
-    { id: 7, name: 'Gray Shirt', image: '/tops/gray-shirt.png' },
-    { id: 8, name: 'White Shirt', image: '/tops/white-shirt.png' },
-    { id: 9, name: 'Red Shirt', image: '/tops/red-shirt.png' },
-    { id: 10, name: 'JGMI Shirt', image: '/tops/purple-jgmi-shirt.png' },
-  ],
-  eyes: [
-    { id: 0, name: 'None', image: '/eyes/none.png' },
-    { id: 1, name: 'Laser Eyes', image: '/eyes/laser-eyes.png' },
-    { id: 2, name: 'Shades', image: '/eyes/shades.png' },
-  ],
-  face: [
-    { id: 0, name: 'None', image: '/face/none.png' },
-    { id: 1, name: 'Cigarette', image: '/face/cigarette.png' },
-  ],
-  
+  tops: [{ id: 0, name: "None", image: "/tops/none.png" }],
+  eyes: [{ id: 0, name: "None", image: "/eyes/none.png" }],
 };

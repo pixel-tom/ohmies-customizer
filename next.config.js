@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
-
-module.exports = nextConfig
-
-module.exports = {
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'shdw-drive.genesysgo.net'],
   },
 }
+
+module.exports = nextConfig;

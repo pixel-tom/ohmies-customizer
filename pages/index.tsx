@@ -1,29 +1,30 @@
 import type { NextPage } from "next";
 import { useState, useRef } from "react";
 import { characterParts } from "../data";
-import CharacterPartSelector from "../components/DogeTraitSelector";
-import CharacterPreview from "../components/DogePreview";
+import OhmiePreview from "../components/OhmiePreview";
 import {
   CharacterParts,
   CharacterPart as CharacterPartType,
   SelectedCharacterParts,
 } from "../types";
 
-import { Gloria_Hallelujah } from "next/font/google";
+import { VT323 } from "next/font/google";
+import OhmieTraitSelector from "../components/OhmieTraitSelector";
 
-const inter = Gloria_Hallelujah({
+const inter = VT323({
   subsets: ["latin"],
   weight: "400",
 });
 
 const Home: NextPage = () => {
   const [selectedParts, setSelectedParts] = useState<SelectedCharacterParts>({
+    background: characterParts.background[0],
     type: characterParts.type[0],
     hats: characterParts.hats[0],
     bottoms: characterParts.bottoms[0],
     tops: characterParts.tops[0],
     eyes: characterParts.eyes[0],
-    face: characterParts.face[0],
+    
   });
 
   const handlePartSelect = (category: keyof CharacterParts, partId: number) => {
@@ -43,12 +44,13 @@ const Home: NextPage = () => {
 
   const randomizeCharacter = () => {
     const newSelectedParts: SelectedCharacterParts = {
+      background: getRandomPart("background"),
       type: getRandomPart("type"),
       hats: getRandomPart("hats"),
       bottoms: getRandomPart("bottoms"),
       tops: getRandomPart("tops"),
       eyes: getRandomPart("eyes"),
-      face: getRandomPart("face"),
+      
     };
     setSelectedParts(newSelectedParts);
   };
@@ -56,25 +58,35 @@ const Home: NextPage = () => {
   const previewRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="min-h-screen  xs:mt-20 flex flex-col items-center">
-      <div className=" max-w-screen-lg w-full my-auto  px-4 z-10">
-        <div className="flex flex-col md:flex-row p-6 pt-8 bg-[#eeede9] my-14 border border-gray-600 rounded-lg shadow-sm gap-4">
+    <div className="flex flex-col items-center">
+      <div className=" max-w-screen-lg w-full px-4 z-10">
+        <div className="flex flex-col md:flex-row my-auto p-6 pt-8 bg-[#eeede9] border border-gray-600 rounded-lg shadow-sm gap-4">
           <div className="w-full md:w-5/12 flex justify-center">
-            <CharacterPreview
+            <OhmiePreview
               selectedParts={selectedParts}
               onRandomize={randomizeCharacter}
               previewRef={previewRef}
             />
           </div>
           <div className="w-full md:w-7/12 mx-auto my-auto">
-            <h1 className={`${inter.className} text-black text-3xl mb-3`}>Customize</h1>
-            <p className="text-sm text-gray-600 mb-5">Check back often for new traits!</p>
+            <div className="ml-4">
+              <h1 className={`${inter.className} text-black text-4xl mb-3`}>
+                Customize
+              </h1>
+              <p className={`${inter.className} text-xl text-gray-600 mb-5`}>
+                Check back often for new traits!
+              </p>
+            </div>
             <div className="h-[1px] mx-6 bg-gray-400"></div>
             <div className="w-full grid grid-cols-2 gap-3 p-3 mx-auto">
               {Object.keys(characterParts).map((category) => (
                 <div key={category} className="space-y-1">
-                  <h2 className="text-xs font-semibold text-gray-800">{category}</h2>
-                  <CharacterPartSelector
+                  <h2
+                    className={` font-semibold text-gray-500 ${inter.className}`}
+                  >
+                    {category}
+                  </h2>
+                  <OhmieTraitSelector
                     parts={characterParts[category as keyof CharacterParts]}
                     selected={
                       selectedParts[category as keyof CharacterParts].id

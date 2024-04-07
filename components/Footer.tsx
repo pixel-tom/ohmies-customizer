@@ -12,7 +12,7 @@ const Footer = () => {
   
 
   return (
-    <nav className="xl:fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none ">
+    <nav className=" flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none ">
       <div></div>
       <div></div>
       <div className="flex items-center">

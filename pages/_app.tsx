@@ -5,9 +5,12 @@ import Footer from "@/components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main className="bg-[url('../public/gradient.png')] bg-cover">
+    <main className="flex flex-col min-h-screen bg-[url('../public/gradient.png')] bg-cover">
       <Navbar />
-      <Component {...pageProps} />
+      <div className="my-auto">
+        <Component {...pageProps} />
+      </div>
+      
       <Footer />
     </main>
   );
