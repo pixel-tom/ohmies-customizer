@@ -88,7 +88,7 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
                 />
               </div>
             )}
-            <div className="flex flex-col ml-4  w-20 h-full overflow-hidden my-auto">
+            <div className="flex flex-col ml-4  w-16 h-full overflow-hidden my-auto">
               <span className="text-left  h-7 text-gray-600">
                 {selectedPart ? selectedPart.name : "Select part"}
               </span>

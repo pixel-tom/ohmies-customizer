@@ -9,8 +9,6 @@ const inter = Londrina_Solid({
 });
 
 const Navbar = () => {
-  
-
   return (
     <nav className="z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none ">
       <div className="flex flex-row gap-3">
@@ -18,7 +16,7 @@ const Navbar = () => {
         <div className={`${inter.className} my-auto text-black text-4xl`}>ohmies.</div>
       </div>
       
-      <div className="flex items-center">
+      <div className="flex items-center relative">
         
         <a
           href="https://twitter.com/_ohmies"
@@ -54,14 +52,12 @@ const Navbar = () => {
             </g>
           </svg>
         </a>
-        <a
-          href="https://discord.gg/XfZaFsbtDr"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center ml-4"
-        >
-          <Image src="/discord.png" width={35} height={35} alt="" />
-        </a>
+        <div className="flex items-center ml-4 relative">
+          <Image src="/discord.png" width={35} height={35} alt="" className="opacity-40"/>
+          <div className={`${inter.className} absolute bottom-3 right-0 bg-purple-500 text-white font-semibold text-sm px-2 py-1 rounded-lg transform translate-x-1/2 -translate-y-1/2`}>
+            Soon
+          </div>
+        </div>
       </div>
     </nav>
   );
