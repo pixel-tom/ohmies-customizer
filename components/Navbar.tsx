@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="flex items-center">
         
         <a
-          href="https://twitter.com/thedogecapital"
+          href="https://twitter.com/_ohmies"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center ml-4"
