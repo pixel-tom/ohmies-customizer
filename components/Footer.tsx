@@ -6,15 +6,16 @@ const inter = VT323({
   weight: "400",
 });
 
-import { Gloria_Hallelujah } from "next/font/google";
-
-
 const Footer = () => {
   return (
-    <nav className={`${inter.className} flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none`}>
+    <nav
+      className={`${inter.className} flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none`}
+    >
       <div />
       <div />
-      <p>© All rights reserved by ohmies. By @_ohmies.</p>
+      <p className="text-gray-600">
+        © All rights reserved by ohmies. By @_ohmies.
+      </p>
     </nav>
   );
 };

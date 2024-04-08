@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <div className="my-auto">
         <Component {...pageProps} />
       </div>
-      
       <Footer />
     </main>
   );

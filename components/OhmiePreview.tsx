@@ -118,10 +118,7 @@ const OhmiePreview: React.FC<Props> = ({
           className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-3 px-6 rounded mt-4 mb-4 mx-2"
         >
           <ShuffleIcon className="my-auto h-5 w-5 mr-2" />
-          <p className="my-auto">
-            RANDOMIZE
-          </p>
-          
+          <p className="my-auto">RANDOMIZE</p>
         </button>
         <button
           onClick={handleDownload}

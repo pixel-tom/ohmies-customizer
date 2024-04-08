@@ -12,12 +12,19 @@ const Navbar = () => {
   return (
     <nav className="z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none ">
       <div className="flex flex-row gap-3">
-        <Image src={"/ohmies-logo.png"} alt={""} width={32} height={32} className="rounded-md my-auto"/>
-        <div className={`${inter.className} my-auto text-black text-4xl`}>ohmies.</div>
+        <Image
+          src={"/ohmies-logo.png"}
+          alt={""}
+          width={32}
+          height={32}
+          className="rounded-md my-auto"
+        />
+        <div className={`${inter.className} my-auto text-black text-4xl`}>
+          ohmies.
+        </div>
       </div>
-      
+
       <div className="flex items-center relative">
-        
         <a
           href="https://twitter.com/_ohmies"
           target="_blank"
@@ -53,8 +60,16 @@ const Navbar = () => {
           </svg>
         </a>
         <div className="flex items-center ml-4 relative">
-          <Image src="/discord.png" width={35} height={35} alt="" className="opacity-40"/>
-          <div className={`${inter.className} absolute bottom-3 right-0 bg-purple-400 text-white font-semibold text-sm px-2 py-1 rounded-lg transform translate-x-1/2 -translate-y-1/2`}>
+          <Image
+            src="/discord.png"
+            width={35}
+            height={35}
+            alt=""
+            className="opacity-40"
+          />
+          <div
+            className={`${inter.className} absolute bottom-3 right-0 bg-purple-400 text-white font-semibold text-sm px-2 py-1 rounded-lg transform translate-x-1/2 -translate-y-1/2`}
+          >
             Soon
           </div>
         </div>
