@@ -138,7 +138,7 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
                   height={35}
                   className=""
                 />
-                <span className="w-1/12 text-gray-500">{part.name}</span>
+                <span className=" text-gray-500">{part.name}</span>
               </div>
             ))}
           </div>
