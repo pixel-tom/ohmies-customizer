@@ -2,7 +2,7 @@
 import { CharacterParts } from "./types";
 
 export const characterParts: CharacterParts = {
-  background: [
+  Background: [
     {
       id: 0,
       name: "Blue",
@@ -40,7 +40,7 @@ export const characterParts: CharacterParts = {
         "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/yellow.png",
     },
   ],
-  type: [
+  Skin: [
     {
       id: 0,
       name: "Gold",
@@ -90,7 +90,7 @@ export const characterParts: CharacterParts = {
         "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/zombie.png",
     },
   ],
-  hats: [
+  Outfit: [
     { id: 0, name: "None", image: "/hats/none.png" },
     {
       id: 1,
@@ -165,7 +165,7 @@ export const characterParts: CharacterParts = {
         "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/wizard-cloak.png",
     },
   ],
-  bottoms: [
+  Head: [
     { id: 0, name: "None", image: "/bottoms/none.png" },
     {
       id: 1,
@@ -228,6 +228,6 @@ export const characterParts: CharacterParts = {
         "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/wizard-hat.png",
     },
   ],
-  tops: [{ id: 0, name: "None", image: "/tops/none.png" }],
-  eyes: [{ id: 0, name: "None", image: "/eyes/none.png" }],
+  Special: [{ id: 0, name: "None", image: "/tops/none.png" }],
+  Mystery: [{ id: 0, name: "None", image: "/eyes/none.png" }],
 };

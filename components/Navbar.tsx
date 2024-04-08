@@ -54,7 +54,7 @@ const Navbar = () => {
         </a>
         <div className="flex items-center ml-4 relative">
           <Image src="/discord.png" width={35} height={35} alt="" className="opacity-40"/>
-          <div className={`${inter.className} absolute bottom-3 right-0 bg-purple-500 text-white font-semibold text-sm px-2 py-1 rounded-lg transform translate-x-1/2 -translate-y-1/2`}>
+          <div className={`${inter.className} absolute bottom-3 right-0 bg-purple-400 text-white font-semibold text-sm px-2 py-1 rounded-lg transform translate-x-1/2 -translate-y-1/2`}>
             Soon
           </div>
         </div>

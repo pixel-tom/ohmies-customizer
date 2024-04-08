@@ -18,12 +18,12 @@ const inter = VT323({
 
 const Home: NextPage = () => {
   const [selectedParts, setSelectedParts] = useState<SelectedCharacterParts>({
-    background: characterParts.background[0],
-    type: characterParts.type[0],
-    hats: characterParts.hats[0],
-    bottoms: characterParts.bottoms[0],
-    tops: characterParts.tops[0],
-    eyes: characterParts.eyes[0],
+    Background: characterParts.Background[0],
+    Skin: characterParts.Skin[0],
+    Outfit: characterParts.Outfit[0],
+    Head: characterParts.Head[0],
+    Special: characterParts.Special[0],
+    Mystery: characterParts.Mystery[0],
     
   });
 
@@ -44,12 +44,12 @@ const Home: NextPage = () => {
 
   const randomizeCharacter = () => {
     const newSelectedParts: SelectedCharacterParts = {
-      background: getRandomPart("background"),
-      type: getRandomPart("type"),
-      hats: getRandomPart("hats"),
-      bottoms: getRandomPart("bottoms"),
-      tops: getRandomPart("tops"),
-      eyes: getRandomPart("eyes"),
+      Background: getRandomPart("Background"),
+      Skin: getRandomPart("Skin"),
+      Outfit: getRandomPart("Outfit"),
+      Head: getRandomPart("Head"),
+      Special: getRandomPart("Special"),
+      Mystery: getRandomPart("Mystery"),
       
     };
     setSelectedParts(newSelectedParts);
