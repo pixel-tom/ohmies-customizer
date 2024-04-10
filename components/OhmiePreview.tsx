@@ -28,50 +28,58 @@ const OhmiePreview: React.FC<Props> = ({
     setLoading(true);
 
     setTimeout(() => {
-      setLoading(false);
-      const canvas = document.createElement("canvas");
-      const context = canvas.getContext("2d");
-      const selectedPartKeys = Object.keys(selectedParts);
-      if (selectedPartKeys.length === 0) return; // No selected parts
+        setLoading(false);
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        const selectedPartKeys = Object.keys(selectedParts);
+        if (selectedPartKeys.length === 0) return; // No selected parts
 
-      const imagePromises = selectedPartKeys.map((category) => {
-        const part = selectedParts[category];
-        return new Promise<HTMLImageElement>((resolve, reject) => {
-          const image = new Image();
-          image.crossOrigin = "anonymous";
-          image.onload = () => {
-            resolve(image);
-          };
-          image.onerror = reject;
-          image.src = part.image;
+        const imagePromises = selectedPartKeys.map((category) => {
+            const part = selectedParts[category];
+            return new Promise<HTMLImageElement>((resolve, reject) => {
+                const image = new Image();
+                image.crossOrigin = "anonymous";
+                image.onload = () => resolve(image);
+                image.onerror = reject;
+                image.src = part.image;
+            });
         });
-      });
 
-      try {
         Promise.all(imagePromises).then((images) => {
-          canvas.width = images[0].width;
-          canvas.height = images[0].height;
+            canvas.width = images[0].width;
+            canvas.height = images[0].height;
 
-          images.forEach((image) => {
-            context?.drawImage(image, 0, 0);
-          });
+            images.forEach((image) => {
+                context?.drawImage(image, 0, 0);
+            });
 
-          canvas.toBlob((blob) => {
-            if (blob) {
-              const url = URL.createObjectURL(blob);
-              const link = document.createElement("a");
-              link.href = url;
-              link.download = "character.png";
-              link.click();
-              URL.revokeObjectURL(url);
-            }
-          }, "image/png");
+            canvas.toBlob(async (blob) => {
+                if (blob) {
+                    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], "character.png", { type: "image/png" })] })) {
+                        try {
+                            await navigator.share({
+                                files: [new File([blob], "ohmie.png", { type: "image/png" })],
+                            
+                            });
+                        } catch (error) {
+                            console.error('Sharing failed', error);
+                        }
+                    } else {
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement("a");
+                        link.href = url;
+                        link.download = "ohmie.png";
+                        link.click();
+                        URL.revokeObjectURL(url);
+                    }
+                }
+            }, "image/png");
+        }).catch(error => {
+            console.error("Image download failed:", error);
         });
-      } catch (error) {
-        console.error("Image download failed:", error);
-      }
-    }, 100);
-  };
+    });
+};
+
 
   const handleRandomize = () => {
     setLoading(true);
