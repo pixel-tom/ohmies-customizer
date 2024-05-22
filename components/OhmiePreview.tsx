@@ -88,7 +88,7 @@ const OhmiePreview: React.FC<Props> = ({
   return (
     <div>
       <div
-        className={`relative mx-auto h-[320px] w-[320px] lg:h-[350px] lg:w-[350px] xl:h-[380px] xl:w-[380px] bg-none mb-2 ${
+        className={`relative mx-auto h-[340px] w-[340px] lg:h-[370px] lg:w-[370px] xl:h-[400px] xl:w-[400px] bg-none ${
           loading && "opacity-30"
         }`}
         ref={previewRef}
@@ -111,17 +111,17 @@ const OhmiePreview: React.FC<Props> = ({
           })}
       </div>
       <canvas ref={canvasRef} className="hidden"></canvas>
-      <div className={`flex gap-4 justify-center mt ${inter.className}`}>
+      <div className={`flex gap-4 justify-center ${inter.className}`}>
         <button
           onClick={handleRandomize}
-          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded  mb-4 mx-2"
         >
           <ShuffleIcon className="my-auto h-5 w-5 mr-2" />
           <p className="my-auto">RANDOMIZE</p>
         </button>
         <button
           onClick={handleDownload}
-          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded  mb-4 mx-2"
         >
           <DownloadIcon className="my-auto h-5 w-5 mr-2" />
           <p className="my-auto">DOWNLOAD</p>
