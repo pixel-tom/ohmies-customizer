@@ -15,14 +15,16 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <main
-      className="flex flex-col min-h-screen"
       style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover" }}
     >
-      <Navbar />
+      <div className="flex mx-auto  justify-center flex-col min-h-screen min-w-screen w-full max-w-7xl">
+        <Navbar />
       <div className="my-auto">
         <Component {...pageProps} setBgImage={setBgImage} />
       </div>
       <Footer />
+      </div>
+      
     </main>
   );
 }

@@ -140,6 +140,7 @@ const OhmiePreview: React.FC<Props> = ({
                 layout="fill"
                 objectFit="responsive"
                 quality={80}
+                loading="lazy"
               />
             );
           })}
