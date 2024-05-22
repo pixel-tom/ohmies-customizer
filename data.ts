@@ -228,6 +228,6 @@ export const characterParts: CharacterParts = {
         "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/wizard-hat.png",
     },
   ],
-  Special: [{ id: 0, name: "None", image: "/tops/none.png" }],
-  Mystery: [{ id: 0, name: "None", image: "/eyes/none.png" }],
+  Special: [{ id: 0, name: "None", image: "/special/none.png" }],
+  Mystery: [{ id: 0, name: "None", image: "/mystery/none.png" }],
 };

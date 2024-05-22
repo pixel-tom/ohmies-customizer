@@ -70,7 +70,7 @@ const OhmiePreview: React.FC<Props> = ({
             navigator.share &&
             navigator.canShare &&
             navigator.canShare({
-              files: [new File([blob], "character.png", { type: "image/png" })],
+              files: [new File([blob], "ohmie.png", { type: "image/png" })],
             })
           ) {
             try {

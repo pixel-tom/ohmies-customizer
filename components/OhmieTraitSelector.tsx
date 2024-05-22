@@ -73,7 +73,7 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
         <button
           type="button"
           onClick={() => setIsOpen(selected)}
-          className="inline-flex justify-between w-full h-14 overflow-hidden rounded-md border border-1 border-gray-300 px-3 py-2 bg-[#f5f5f5] text-lg text-gray-600 hover:bg-[#ebebeb] hover:border-[#a7a7a7] focus:outline-none shadow-inner"
+          className="inline-flex justify-between w-full h-14 overflow-hidden rounded-md border border-1 border-gray-300 px-3 py-2 bg-[#f5f5f5]/60 text-lg text-gray-600 hover:bg-[#ebebeb] hover:border-[#a7a7a7] focus:outline-none shadow-inner"
         >
           <div className="flex items-center my-auto">
             {selectedPart && (
