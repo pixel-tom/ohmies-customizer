@@ -7,37 +7,37 @@ export const characterParts: CharacterParts = {
       id: 0,
       name: "Blue",
       image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/blue.png",
+        "/background/blue.png",
     },
     {
       id: 1,
       name: "Mint",
       image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/mint.png",
+        "/background/mint.png",
     },
     {
       id: 2,
       name: "Gray",
       image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/gray.png",
+        "/background/gray.png",
     },
     {
       id: 3,
       name: "Salmon",
       image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/salmon.png",
+        "/background/salmon.png",
     },
     {
       id: 4,
       name: "Purple",
       image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/purple.png",
+        "/background/purple.png",
     },
     {
       id: 5,
       name: "Yellow",
       image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/yellow.png",
+        "/background/yellow.png",
     },
   ],
   Skin: [
@@ -91,7 +91,7 @@ export const characterParts: CharacterParts = {
     },
   ],
   Outfit: [
-    { id: 0, name: "None", image: "/hats/none.png" },
+    { id: 0, name: "None", image: "/outfit/none.png" },
     {
       id: 1,
       name: "Ref",
@@ -166,7 +166,7 @@ export const characterParts: CharacterParts = {
     },
   ],
   Head: [
-    { id: 0, name: "None", image: "/bottoms/none.png" },
+    { id: 0, name: "None", image: "/head/none.png" },
     {
       id: 1,
       name: "Bandana",

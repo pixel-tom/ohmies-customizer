@@ -1,3 +1,4 @@
+// OhmieTraitSelector.tsx
 import React, { useState, useEffect, useRef } from "react";
 import { CharacterPart } from "../types";
 import Image from "next/image";
@@ -54,14 +55,11 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
         const spaceAbovePercentage = spaceAbove / window.innerHeight;
         const spaceBelowPercentage = spaceBelow / window.innerHeight;
 
-        if (spaceAbovePercentage > spaceBelowPercentage) {
-          return "origin-bottom-right";
-        } else {
-          return "origin-top-right";
-        }
+        return spaceAbovePercentage > spaceBelowPercentage
+          ? "origin-bottom-right"
+          : "origin-top-right";
       }
     }
-
     return "origin-top-right";
   };
 
@@ -88,8 +86,8 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
                 />
               </div>
             )}
-            <div className="flex flex-col ml-4  w-16 h-full overflow-hidden my-auto">
-              <span className="text-left  h-7 text-gray-600">
+            <div className="flex flex-col ml-4 w-16 h-full overflow-hidden my-auto">
+              <span className="text-left h-7 text-gray-600">
                 {selectedPart ? selectedPart.name : "Select part"}
               </span>
             </div>
@@ -116,7 +114,7 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
           className={`absolute ${dropdownPosition} mt-1 max-h-48 w-full overflow-x-auto overflow-y-scroll rounded-md shadow-md bg-[#f5f5f5] ring-1 ring-black ring-opacity-5 focus:outline-none z-10`}
         >
           <div
-            className=" grid grid-cols-1 border border-gray-300 rounded-md"
+            className="grid grid-cols-1 border border-gray-300 rounded-md"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu"
@@ -138,7 +136,7 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
                   height={35}
                   className=""
                 />
-                <span className=" text-gray-500">{part.name}</span>
+                <span className="text-gray-500">{part.name}</span>
               </div>
             ))}
           </div>

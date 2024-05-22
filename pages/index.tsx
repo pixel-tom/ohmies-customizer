@@ -1,22 +1,28 @@
 import type { NextPage } from "next";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { characterParts } from "../data";
 import OhmiePreview from "../components/OhmiePreview";
-import {
-  CharacterParts,
-  CharacterPart as CharacterPartType,
-  SelectedCharacterParts,
-} from "../types";
-
+import { CharacterParts, SelectedCharacterParts } from "../types";
 import { VT323 } from "next/font/google";
+import { Londrina_Solid } from "next/font/google";
 import OhmieTraitSelector from "../components/OhmieTraitSelector";
+import Image from "next/image";
 
 const inter = VT323({
   subsets: ["latin"],
   weight: "400",
 });
 
-const Home: NextPage = () => {
+const londrina = Londrina_Solid({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+interface HomeProps {
+  setBgImage: (imageUrl: string) => void;
+}
+
+const Home: NextPage<HomeProps> = ({ setBgImage }) => {
   const [selectedParts, setSelectedParts] = useState<SelectedCharacterParts>({
     Background: characterParts.Background[0],
     Skin: characterParts.Skin[0],
@@ -24,15 +30,16 @@ const Home: NextPage = () => {
     Head: characterParts.Head[0],
     Special: characterParts.Special[0],
     Mystery: characterParts.Mystery[0],
-    
   });
 
+  useEffect(() => {
+    setBgImage(selectedParts.Background.image);
+  }, [selectedParts.Background, setBgImage]);
+
   const handlePartSelect = (category: keyof CharacterParts, partId: number) => {
-    setSelectedParts((prevState: any) => ({
+    setSelectedParts((prevState) => ({
       ...prevState,
-      [category]: characterParts[category].find(
-        (part: CharacterPartType) => part.id === partId
-      )!,
+      [category]: characterParts[category].find((part) => part.id === partId)!,
     }));
   };
 
@@ -50,7 +57,6 @@ const Home: NextPage = () => {
       Head: getRandomPart("Head"),
       Special: getRandomPart("Special"),
       Mystery: getRandomPart("Mystery"),
-      
     };
     setSelectedParts(newSelectedParts);
   };
@@ -59,20 +65,27 @@ const Home: NextPage = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className=" max-w-screen-lg w-full px-4 z-10">
-        <div className="flex flex-col md:flex-row my-auto p-6 pt-8 bg-[#eeede9] border border-gray-600 rounded-lg shadow-sm gap-4">
-          <div className="w-full md:w-5/12 flex justify-center">
+      <div className="max-w-screen-lg w-full px-4 z-10">
+        <div className="flex flex-col md:flex-row my-auto p-6 pt-8 gap-4">
+          <div className="w-full md:w-5/12 flex justify-center mr-10">
             <OhmiePreview
               selectedParts={selectedParts}
-              onRandomize={randomizeCharacter}
+              setSelectedParts={setSelectedParts}
               previewRef={previewRef}
             />
           </div>
           <div className="w-full md:w-7/12 mx-auto my-auto">
             <div className="ml-4">
-              <h1 className={`${inter.className} text-black text-4xl mb-3`}>
-                Customize
-              </h1>
+              <div className="flex justify-between mb-2">
+                <div className="flex flex-row gap-3">
+                  <div
+                    className={`${londrina.className} my-auto text-black text-4xl`}
+                  >
+                    customizer.
+                  </div>
+                </div>
+              </div>
+
               <p className={`${inter.className} text-xl text-gray-600 mb-5`}>
                 Check back often for new traits!
               </p>
@@ -82,7 +95,7 @@ const Home: NextPage = () => {
               {Object.keys(characterParts).map((category) => (
                 <div key={category} className="space-y-1">
                   <h2
-                    className={` font-semibold text-gray-500 ${inter.className}`}
+                    className={`font-semibold text-gray-500 ${inter.className}`}
                   >
                     {category}
                   </h2>

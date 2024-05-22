@@ -13,13 +13,13 @@ const inter = VT323({
 
 interface Props {
   selectedParts: SelectedCharacterParts;
-  onRandomize: (newParts: SelectedCharacterParts) => void;
+  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedCharacterParts>>;
   previewRef: React.RefObject<HTMLDivElement>;
 }
 
 const OhmiePreview: React.FC<Props> = ({
   selectedParts,
-  onRandomize,
+  setSelectedParts,
   previewRef,
 }) => {
   const [loading, setLoading] = useState(false);
@@ -27,110 +27,134 @@ const OhmiePreview: React.FC<Props> = ({
   const handleDownload = async () => {
     setLoading(true);
 
-    setTimeout(() => {
-        setLoading(false);
-        const canvas = document.createElement("canvas");
-        const context = canvas.getContext("2d");
-        const selectedPartKeys = Object.keys(selectedParts);
-        if (selectedPartKeys.length === 0) return; // No selected parts
+    try {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      const selectedPartKeys = Object.keys(selectedParts);
+      if (selectedPartKeys.length === 0) return; // No selected parts
 
-        const imagePromises = selectedPartKeys.map((category) => {
-            const part = selectedParts[category];
-            return new Promise<HTMLImageElement>((resolve, reject) => {
-                const image = new Image();
-                image.crossOrigin = "anonymous";
-                image.onload = () => resolve(image);
-                image.onerror = reject;
-                image.src = part.image;
-            });
-        });
+      // Download background image separately
+      const backgroundImage = new Image();
+      backgroundImage.crossOrigin = "anonymous";
+      backgroundImage.src = selectedParts.Background.image;
 
-        Promise.all(imagePromises).then((images) => {
-            canvas.width = images[0].width;
-            canvas.height = images[0].height;
+      const imagePromises = selectedPartKeys.map((category) => {
+        const part = selectedParts[category as keyof SelectedCharacterParts];
+        if (category === "Background") {
+          return new Promise<HTMLImageElement>((resolve, reject) => {
+            backgroundImage.onload = () => resolve(backgroundImage);
+            backgroundImage.onerror = reject;
+          });
+        } else {
+          return new Promise<HTMLImageElement>((resolve, reject) => {
+            const image = new Image();
+            image.crossOrigin = "anonymous";
+            image.onload = () => resolve(image);
+            image.onerror = reject;
+            image.src = part.image;
+          });
+        }
+      });
 
-            images.forEach((image) => {
-                context?.drawImage(image, 0, 0);
-            });
+      const images = await Promise.all(imagePromises);
+      canvas.width = images[0].width;
+      canvas.height = images[0].height;
 
-            canvas.toBlob(async (blob) => {
-                if (blob) {
-                    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], "character.png", { type: "image/png" })] })) {
-                        try {
-                            await navigator.share({
-                                files: [new File([blob], "ohmie.png", { type: "image/png" })],
-                            
-                            });
-                        } catch (error) {
-                            console.error('Sharing failed', error);
-                        }
-                    } else {
-                        const url = URL.createObjectURL(blob);
-                        const link = document.createElement("a");
-                        link.href = url;
-                        link.download = "ohmie.png";
-                        link.click();
-                        URL.revokeObjectURL(url);
-                    }
-                }
-            }, "image/png");
-        }).catch(error => {
-            console.error("Image download failed:", error);
-        });
-    });
-};
+      images.forEach((image) => {
+        context?.drawImage(image, 0, 0);
+      });
 
+      canvas.toBlob(async (blob) => {
+        if (blob) {
+          if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({
+              files: [new File([blob], "character.png", { type: "image/png" })],
+            })
+          ) {
+            try {
+              await navigator.share({
+                files: [new File([blob], "ohmie.png", { type: "image/png" })],
+              });
+            } catch (error) {
+              console.error("Sharing failed", error);
+            }
+          } else {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "ohmie.png";
+            link.click();
+            URL.revokeObjectURL(url);
+          }
+        }
+      }, "image/png");
+    } catch (error) {
+      console.error("Image download failed:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleRandomize = () => {
     setLoading(true);
 
     setTimeout(() => {
+      const newSelectedParts: SelectedCharacterParts = {
+        Background: getRandomPart("Background"),
+        Skin: getRandomPart("Skin"),
+        Outfit: getRandomPart("Outfit"),
+        Head: getRandomPart("Head"),
+        Special: getRandomPart("Special"),
+        Mystery: getRandomPart("Mystery"),
+      };
+      setSelectedParts(newSelectedParts);
       setLoading(false);
-      const newSelectedParts: SelectedCharacterParts = {};
-      for (const category in characterParts) {
-        const parts = characterParts[category as keyof CharacterParts];
-        const randomIndex = Math.floor(Math.random() * parts.length);
-        newSelectedParts[category as keyof CharacterParts] = parts[randomIndex];
-      }
-      onRandomize(newSelectedParts);
     }, 400);
+  };
+
+  const getRandomPart = (category: keyof CharacterParts) => {
+    const parts = characterParts[category];
+    const randomIndex = Math.floor(Math.random() * parts.length);
+    return parts[randomIndex];
   };
 
   return (
     <div>
-      {loading}
       <div
-        className={`relative mx-auto h-[300px] w-[300px] md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none rounded-sm shadow-sm mb-2 ${
-          loading && "opacity-30 shadow-inner"
+        className={`relative mx-auto h-[300px] w-[300px] md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none mb-2 ${
+          loading && "opacity-30"
         }`}
         ref={previewRef}
       >
-        {Object.keys(selectedParts).map((category) => {
-          const part = selectedParts[category as keyof SelectedCharacterParts];
-          return (
-            <NextImage
-              key={category}
-              src={part.image}
-              alt={part.name}
-              layout="fill"
-              objectFit="responsive"
-              quality={80}
-              className="border border-1 border-black"
-            />
-          );
-        })}
+        {Object.keys(selectedParts)
+          .filter((category) => category !== "Background")
+          .map((category) => {
+            const part = selectedParts[category as keyof SelectedCharacterParts];
+            return (
+              <NextImage
+                key={category}
+                src={part.image}
+                alt={part.name}
+                layout="fill"
+                objectFit="responsive"
+                quality={80}
+              />
+            );
+          })}
       </div>
-      <div className={`flex justify-center ${inter.className}`}>
+      <div className={`flex gap-4 justify-center ${inter.className}`}>
         <button
           onClick={handleRandomize}
-          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-3 px-6 rounded mt-4 mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2"
         >
           <ShuffleIcon className="my-auto h-5 w-5 mr-2" />
           <p className="my-auto">RANDOMIZE</p>
         </button>
         <button
           onClick={handleDownload}
-          className=" flex flex-row bg-none border  border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-3 px-6 rounded mt-4 mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2"
         >
           <DownloadIcon className="my-auto h-5 w-5 mr-2" />
           <p className="my-auto">DOWNLOAD</p>
