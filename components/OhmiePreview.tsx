@@ -123,7 +123,7 @@ const OhmiePreview: React.FC<Props> = ({
   return (
     <div>
       <div
-        className={`relative mx-auto h-[300px] w-[300px] md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none mb-2 ${
+        className={`relative mx-auto h-[320px] w-[320px] lg:h-[350px] lg:w-[350px] xl:h-[380px] xl:w-[380px] bg-none mb-2 ${
           loading && "opacity-30"
         }`}
         ref={previewRef}
