@@ -5,9 +5,14 @@ import { characterParts } from "@/data";
 import DownloadIcon from "@mui/icons-material/Download";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
 import { VT323 } from "next/font/google";
+import { Londrina_Solid } from "next/font/google";
 import debounce from "lodash.debounce";
 
 const inter = VT323({
+  subsets: ["latin"],
+  weight: "400",
+});
+const londrina = Londrina_Solid({
   subsets: ["latin"],
   weight: "400",
 });
@@ -114,17 +119,17 @@ const OhmiePreview: React.FC<Props> = ({
       <div className={`flex gap-4 justify-center ${inter.className}`}>
         <button
           onClick={handleRandomize}
-          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded  mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-6 rounded  mb-4 mx-2"
         >
-          <ShuffleIcon className="my-auto h-5 w-5 mr-2" />
-          <p className="my-auto">RANDOMIZE</p>
+          {/* <ShuffleIcon className="my-auto h-5 w-5 mr-2" /> */}
+          <p className={`my-auto ${londrina.className}`}>surprise.</p>
         </button>
         <button
           onClick={handleDownload}
-          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded  mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-6 rounded  mb-4 mx-2"
         >
-          <DownloadIcon className="my-auto h-5 w-5 mr-2" />
-          <p className="my-auto">DOWNLOAD</p>
+          {/* <DownloadIcon className="my-auto h-5 w-5 mr-2" /> */}
+          <p className={`my-auto ${londrina.className}`}>download.</p>
         </button>
       </div>
     </div>
