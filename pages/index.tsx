@@ -3,19 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { characterParts } from "../data";
 import OhmiePreview from "../components/OhmiePreview";
 import { CharacterParts, SelectedCharacterParts } from "../types";
-import { VT323 } from "next/font/google";
-import { Londrina_Solid } from "next/font/google";
 import OhmieTraitSelector from "../components/OhmieTraitSelector";
-
-const inter = VT323({
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const londrina = Londrina_Solid({
-  subsets: ["latin"],
-  weight: "400",
-});
+import { londrina, vt } from "@/constants/fonts";
 
 interface HomeProps {
   setBgImage: (imageUrl: string) => void;
@@ -73,9 +62,9 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
               previewRef={previewRef}
             />
           </div>
-          <div className="w-full md:w-7/12 mx-auto my-auto">
+          <div className="w-full md:w-7/12 mx-auto my-auto rounded-2xl">
             <div className="ml-4">
-              <p className={`${inter.className} text-xl text-gray-600`}>
+              <p className={`${vt.className} text-xl text-gray-600`}>
                 Choose your style!
               </p>
               <div className="flex justify-between mb-4">
@@ -93,7 +82,7 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
               {Object.keys(characterParts).map((category) => (
                 <div key={category} className="space-y-1">
                   <h2
-                    className={`font-semibold text-gray-500 ${inter.className}`}
+                    className={`font-semibold text-gray-500 ${vt.className}`}
                   >
                     {category}
                   </h2>

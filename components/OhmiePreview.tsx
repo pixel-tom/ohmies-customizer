@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import NextImage from "next/image";
 import { CharacterParts, SelectedCharacterParts } from "../types";
 import { characterParts } from "@/data";
-import DownloadIcon from "@mui/icons-material/Download";
-import ShuffleIcon from "@mui/icons-material/Shuffle";
-import { VT323 } from "next/font/google";
-
-const inter = VT323({
-  subsets: ["latin"],
-  weight: "400",
-});
+import { vt, londrina } from "@/constants/fonts";
 
 interface Props {
   selectedParts: SelectedCharacterParts;
@@ -117,7 +110,7 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
   return (
     <div>
       <div
-        className={`relative mx-auto h-[320px] w-[320px] lg:h-[350px] lg:w-[350px] xl:h-[380px] xl:w-[380px] bg-none mb-2 ${
+        className={`relative mx-auto h-[360px] w-[360px] lg:h-[380px] lg:w-[380px] xl:h-[400px] xl:w-[400px] bg-none mb-2 ${
           loading && "opacity-30"
         }`}
         ref={previewRef}
@@ -139,20 +132,18 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
             );
           })}
       </div>
-      <div className={`flex gap-4 justify-center mt ${inter.className}`}>
+      <div className={`flex gap-4 justify-center mt ${vt.className}`}>
         <button
           onClick={handleRandomize}
-          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2 shadow-md"
         >
-          <ShuffleIcon className="my-auto h-5 w-5 mr-2" />
-          <p className="my-auto">RANDOMIZE</p>
+          <p className={`my-auto text-gray-200 ${londrina.className}`}>surprise.</p>
         </button>
         <button
           onClick={handleDownload}
-          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2"
+          className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2 shadow-md"
         >
-          <DownloadIcon className="my-auto h-5 w-5 mr-2" />
-          <p className="my-auto">DOWNLOAD</p>
+          <p className={`my-auto text-gray-200 ${londrina.className}`}>download.</p>
         </button>
       </div>
     </div>

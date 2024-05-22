@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CharacterPart } from "../types";
 import Image from "next/image";
-import { VT323 } from "next/font/google";
-
-const inter = VT323({
-  subsets: ["latin"],
-  weight: "400",
-});
+import { vt } from "@/constants/fonts";
 
 interface Props {
   parts: CharacterPart[];
@@ -66,9 +61,9 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
 
   return (
     <div
-      className={`relative inline-block text-left w-full ${inter.className}`}
+      className={`relative inline-block text-left w-full ${vt.className}`}
     >
-      <div className="w-full" ref={selectorRef}>
+      <div className="w-full shadow-md shadow-gray-400/10" ref={selectorRef}>
         <button
           type="button"
           onClick={() => setIsOpen(selected)}
