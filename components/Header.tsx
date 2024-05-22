@@ -8,20 +8,18 @@ const inter = Londrina_Solid({
   weight: "400",
 });
 
-const Navbar = () => {
+const Header = () => {
   return (
     <nav className="z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none ">
       <div className="flex flex-row gap-3">
         <Image
           src={"/ohmies-logo.png"}
           alt={""}
-          width={32}
-          height={32}
+          width={40}
+          height={40}
           className="rounded-md my-auto"
         />
-        <div className={`${inter.className} my-auto text-black text-4xl`}>
-          ohmies.
-        </div>
+        
       </div>
 
       <div className="flex items-center relative">
@@ -78,4 +76,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

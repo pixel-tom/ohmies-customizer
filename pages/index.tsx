@@ -6,7 +6,6 @@ import { CharacterParts, SelectedCharacterParts } from "../types";
 import { VT323 } from "next/font/google";
 import { Londrina_Solid } from "next/font/google";
 import OhmieTraitSelector from "../components/OhmieTraitSelector";
-import Image from "next/image";
 
 const inter = VT323({
   subsets: ["latin"],
@@ -66,8 +65,8 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="max-w-screen-lg w-full px-4 z-10">
-        <div className="flex flex-col md:flex-row my-auto p-6 pt-8 gap-4">
-          <div className="w-full md:w-5/12 flex justify-center mr-10">
+        <div className="flex flex-col md:flex-row p-6 pt-8 gap-4">
+          <div className="w-full md:w-5/12 flex justify-center mr-10 mb-10">
             <OhmiePreview
               selectedParts={selectedParts}
               setSelectedParts={setSelectedParts}
@@ -76,21 +75,20 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
           </div>
           <div className="w-full md:w-7/12 mx-auto my-auto">
             <div className="ml-4">
-              <div className="flex justify-between mb-2">
+              <p className={`${inter.className} text-xl text-gray-600`}>
+                Choose your style!
+              </p>
+              <div className="flex justify-between mb-4">
                 <div className="flex flex-row gap-3">
                   <div
                     className={`${londrina.className} my-auto text-black text-4xl`}
                   >
-                    customizer.
+                    customize your ohmie.
                   </div>
                 </div>
               </div>
-
-              <p className={`${inter.className} text-xl text-gray-600 mb-5`}>
-                Check back often for new traits!
-              </p>
             </div>
-            <div className="h-[1px] mx-6 bg-gray-400"></div>
+            
             <div className="w-full grid grid-cols-2 gap-3 p-3 mx-auto">
               {Object.keys(characterParts).map((category) => (
                 <div key={category} className="space-y-1">

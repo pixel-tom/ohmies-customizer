@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 
@@ -17,14 +17,13 @@ function App({ Component, pageProps }: AppProps) {
     <main
       style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover" }}
     >
-      <div className="flex mx-auto  justify-center flex-col min-h-screen min-w-screen w-full max-w-7xl">
-        <Navbar />
-      <div className="my-auto">
-        <Component {...pageProps} setBgImage={setBgImage} />
+      <div className="flex mx-auto justify-center flex-col min-h-screen min-w-screen w-full max-w-7xl">
+        <Header />
+        <div className="my-auto">
+          <Component {...pageProps} setBgImage={setBgImage} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-      </div>
-      
     </main>
   );
 }

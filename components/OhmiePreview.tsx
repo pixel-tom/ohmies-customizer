@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import NextImage from "next/image";
 import { CharacterParts, SelectedCharacterParts } from "../types";
 import { characterParts } from "@/data";
 import DownloadIcon from "@mui/icons-material/Download";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
 import { VT323 } from "next/font/google";
+import debounce from "lodash.debounce";
 
 const inter = VT323({
   subsets: ["latin"],
@@ -23,81 +24,45 @@ const OhmiePreview: React.FC<Props> = ({
   previewRef,
 }) => {
   const [loading, setLoading] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const workerRef = useRef<Worker>();
+
+  useEffect(() => {
+    workerRef.current = new Worker(new URL("../workers/imageWorker.js", import.meta.url));
+    workerRef.current.onmessage = (event) => {
+      setLoading(false);
+      const { blob, error } = event.data;
+      if (error) {
+        console.error("Image processing failed:", error);
+      } else if (blob) {
+        const file = new File([blob], "ohmie.png", { type: "image/png" });
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            navigator.share({ files: [file] });
+          } catch (error) {
+            console.error("Sharing failed", error);
+          }
+        } else {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "ohmie.png";
+          link.click();
+          URL.revokeObjectURL(url);
+        }
+      }
+    };
+    return () => {
+      workerRef.current?.terminate();
+    };
+  }, []);
 
   const handleDownload = async () => {
     setLoading(true);
-
-    try {
-      const canvas = document.createElement("canvas");
-      const context = canvas.getContext("2d");
-      const selectedPartKeys = Object.keys(selectedParts);
-      if (selectedPartKeys.length === 0) return; // No selected parts
-
-      // Download background image separately
-      const backgroundImage = new Image();
-      backgroundImage.crossOrigin = "anonymous";
-      backgroundImage.src = selectedParts.Background.image;
-
-      const imagePromises = selectedPartKeys.map((category) => {
-        const part = selectedParts[category as keyof SelectedCharacterParts];
-        if (category === "Background") {
-          return new Promise<HTMLImageElement>((resolve, reject) => {
-            backgroundImage.onload = () => resolve(backgroundImage);
-            backgroundImage.onerror = reject;
-          });
-        } else {
-          return new Promise<HTMLImageElement>((resolve, reject) => {
-            const image = new Image();
-            image.crossOrigin = "anonymous";
-            image.onload = () => resolve(image);
-            image.onerror = reject;
-            image.src = part.image;
-          });
-        }
-      });
-
-      const images = await Promise.all(imagePromises);
-      canvas.width = images[0].width;
-      canvas.height = images[0].height;
-
-      images.forEach((image) => {
-        context?.drawImage(image, 0, 0);
-      });
-
-      canvas.toBlob(async (blob) => {
-        if (blob) {
-          if (
-            navigator.share &&
-            navigator.canShare &&
-            navigator.canShare({
-              files: [new File([blob], "ohmie.png", { type: "image/png" })],
-            })
-          ) {
-            try {
-              await navigator.share({
-                files: [new File([blob], "ohmie.png", { type: "image/png" })],
-              });
-            } catch (error) {
-              console.error("Sharing failed", error);
-            }
-          } else {
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement("a");
-            link.href = url;
-            link.download = "ohmie.png";
-            link.click();
-            URL.revokeObjectURL(url);
-          }
-        }
-      }, "image/png");
-    } catch (error) {
-      console.error("Image download failed:", error);
-    } finally {
-      setLoading(false);
-    }
+    workerRef.current?.postMessage({ selectedParts });
   };
 
-  const handleRandomize = () => {
+  const handleRandomize = debounce(() => {
     setLoading(true);
 
     setTimeout(() => {
@@ -111,8 +76,8 @@ const OhmiePreview: React.FC<Props> = ({
       };
       setSelectedParts(newSelectedParts);
       setLoading(false);
-    }, 400);
-  };
+    }, 100);
+  }, 200);
 
   const getRandomPart = (category: keyof CharacterParts) => {
     const parts = characterParts[category];
@@ -145,7 +110,8 @@ const OhmiePreview: React.FC<Props> = ({
             );
           })}
       </div>
-      <div className={`flex gap-4 justify-center ${inter.className}`}>
+      <canvas ref={canvasRef} className="hidden"></canvas>
+      <div className={`flex gap-4 justify-center mt ${inter.className}`}>
         <button
           onClick={handleRandomize}
           className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2"

@@ -1,4 +1,3 @@
-// OhmieTraitSelector.tsx
 import React, { useState, useEffect, useRef } from "react";
 import { CharacterPart } from "../types";
 import Image from "next/image";
