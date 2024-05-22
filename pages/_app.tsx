@@ -15,6 +15,7 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <main
+    className="overflow-auto"
       style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover" }}
     >
       <div className="flex mx-auto justify-center flex-col min-h-screen min-w-screen w-full max-w-7xl">
