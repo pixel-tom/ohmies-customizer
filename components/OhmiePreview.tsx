@@ -90,11 +90,13 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
     setTimeout(() => {
       const newSelectedParts: SelectedCharacterParts = {
         Background: getRandomPart("Background"),
-        Skin: getRandomPart("Skin"),
-        Outfit: getRandomPart("Outfit"),
-        Head: getRandomPart("Head"),
+        Type: getRandomPart("Type"),
+        Hats: getRandomPart("Hats"),
+        Clothes: getRandomPart("Clothes"),
+        Eyes: getRandomPart("Eyes"),
+        Mouth: getRandomPart("Mouth"),
         Special: getRandomPart("Special"),
-        Mystery: getRandomPart("Mystery"),
+        Vr: getRandomPart("Vr"),
       };
       setSelectedParts(newSelectedParts);
       setLoading(false);
@@ -110,7 +112,7 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
   return (
     <div>
       <div
-        className={`relative mx-auto h-[360px] w-[360px] lg:h-[380px] lg:w-[380px] xl:h-[400px] xl:w-[400px] bg-none mb-2 ${
+        className={`relative mx-auto h-[360px] w-[360px] lg:h-[380px] lg:w-[380px] xl:h-[400px] xl:w-[400px] bg-none mb-4 ${
           loading && "opacity-30"
         }`}
         ref={previewRef}
@@ -132,7 +134,7 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
             );
           })}
       </div>
-      <div className={`flex gap-4 justify-center mt ${vt.className}`}>
+      <div className={`flex gap-4 justify-center ${vt.className}`}>
         <button
           onClick={handleRandomize}
           className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2 shadow-md"

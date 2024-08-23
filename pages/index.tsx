@@ -13,11 +13,13 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ setBgImage }) => {
   const [selectedParts, setSelectedParts] = useState<SelectedCharacterParts>({
     Background: characterParts.Background[0],
-    Skin: characterParts.Skin[0],
-    Outfit: characterParts.Outfit[0],
-    Head: characterParts.Head[0],
+    Type: characterParts.Type[0],
+    Hats: characterParts.Hats[0],
+    Clothes: characterParts.Clothes[0],
+    Eyes: characterParts.Eyes[0],
+    Mouth: characterParts.Mouth[0],
     Special: characterParts.Special[0],
-    Mystery: characterParts.Mystery[0],
+    Vr: characterParts.Vr[0],
   });
 
   useEffect(() => {
@@ -40,11 +42,13 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
   const randomizeCharacter = () => {
     const newSelectedParts: SelectedCharacterParts = {
       Background: getRandomPart("Background"),
-      Skin: getRandomPart("Skin"),
-      Outfit: getRandomPart("Outfit"),
-      Head: getRandomPart("Head"),
+      Type: getRandomPart("Type"),
+      Hats: getRandomPart("Hats"),
+      Clothes: getRandomPart("Clothes"),
+      Eyes: getRandomPart("Eyes"),
+      Mouth: getRandomPart("Mouth"),
       Special: getRandomPart("Special"),
-      Mystery: getRandomPart("Mystery"),
+      Vr: getRandomPart("Vr"),
     };
     setSelectedParts(newSelectedParts);
   };

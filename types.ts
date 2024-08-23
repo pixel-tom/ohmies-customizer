@@ -7,18 +7,22 @@ export interface CharacterPart {
 
 export interface CharacterParts {
   Background: CharacterPart[];
-  Skin: CharacterPart[];
-  Outfit: CharacterPart[];
-  Head: CharacterPart[];
+  Type: CharacterPart[];
+  Hats: CharacterPart[];
+  Clothes: CharacterPart[];
+  Eyes: CharacterPart[];
+  Mouth: CharacterPart[];
   Special: CharacterPart[];
-  Mystery: CharacterPart[];
+  Vr: CharacterPart[];
 }
 
 export interface SelectedCharacterParts {
   Background: CharacterPart;
-  Skin: CharacterPart;
-  Outfit: CharacterPart;
-  Head: CharacterPart;
+  Type: CharacterPart;
+  Hats: CharacterPart;
+  Clothes: CharacterPart;
+  Eyes: CharacterPart;
+  Mouth: CharacterPart;
   Special: CharacterPart;
-  Mystery: CharacterPart;
+  Vr: CharacterPart;
 }

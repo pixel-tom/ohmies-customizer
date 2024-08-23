@@ -1,233 +1,204 @@
 // data.ts
-import { CharacterParts } from "./types";
+import { CharacterParts } from './types';
 
 export const characterParts: CharacterParts = {
   Background: [
-    {
-      id: 0,
-      name: "Blue",
-      image:
-        "/background/blue.png",
-    },
-    {
-      id: 1,
-      name: "Mint",
-      image:
-        "/background/mint.png",
-    },
-    {
-      id: 2,
-      name: "Gray",
-      image:
-        "/background/gray.png",
-    },
-    {
-      id: 3,
-      name: "Salmon",
-      image:
-        "/background/salmon.png",
-    },
-    {
-      id: 4,
-      name: "Purple",
-      image:
-        "/background/purple.png",
-    },
-    {
-      id: 5,
-      name: "Yellow",
-      image:
-        "/background/yellow.png",
-    },
+    { id: 0, name: 'Blue', image: '/background/blue.png' },
+    { id: 1, name: 'Green', image: '/background/green.png' },
+    { id: 2, name: 'Orange', image: '/background/orange.png' },
+    { id: 3, name: 'Purple', image: '/background/purple.png' },
+    { id: 4, name: 'Red', image: '/background/red.png' },
+    { id: 5, name: 'Yellow', image: '/background/yellow.png' },
+    { id: 6, name: 'BTC Orange', image: '/background/btc-orange.png' },
+    // add more backgrounds
   ],
-  Skin: [
-    {
-      id: 0,
-      name: "Gold",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/gold.png",
-    },
-    {
-      id: 1,
-      name: "Ice",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/ice.png",
-    },
-    {
-      id: 2,
-      name: "Nude",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/nude.png",
-    },
-    {
-      id: 3,
-      name: "Ruby",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/ruby.png",
-    },
-    {
-      id: 4,
-      name: "Solana",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/solana.png",
-    },
-    {
-      id: 5,
-      name: "Underworld",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/underworld.png",
-    },
-    {
-      id: 6,
-      name: "Scar",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/scar.png",
-    },
-    {
-      id: 7,
-      name: "Zombie",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/zombie.png",
-    },
+  Type: [
+    { id: 0, name: 'Alien', image: '/type/alien.png' },
+    { id: 1, name: 'Brown', image: '/type/brown.png' },
+    { id: 2, name: 'Dark', image: '/type/dark.png' },
+    { id: 3, name: 'Orange', image: '/type/orange.png' },
+    { id: 4, name: 'Purple', image: '/type/purple.png' },
+    { id: 5, name: 'Red', image: '/type/red.png' },
+    { id: 6, name: 'Skeleton', image: '/type/skeleton.png' },
+    { id: 7, name: 'Solana', image: '/type/solana.png' },
+    { id: 8, name: 'Zombie', image: '/type/zombie.png' },
+    { id: 9, name: 'Albino', image: '/type/albinos.png' },
+    // add more types
   ],
-  Outfit: [
-    { id: 0, name: "None", image: "/outfit/none.png" },
-    {
-      id: 1,
-      name: "Ref",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/ref.png",
-    },
-    {
-      id: 2,
-      name: "Hero",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/hero.png",
-    },
-    {
-      id: 3,
-      name: "Dark Cloak",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/dark-cloak.png",
-    },
-    {
-      id: 4,
-      name: "Casual",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/casual.png",
-    },
-    {
-      id: 5,
-      name: "Black Belt",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/black-belt.png",
-    },
-    {
-      id: 6,
-      name: "High Roller",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/high-roller.png",
-    },
-    {
-      id: 7,
-      name: "Hacker Hoodie",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/hacker-hoodie.png",
-    },
-    {
-      id: 8,
-      name: "School",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/school.png",
-    },
-    {
-      id: 9,
-      name: "Sheriff",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/sheriff.png",
-    },
-    {
-      id: 10,
-      name: "Jumpsuit",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/jumpsuit.png",
-    },
-    {
-      id: 11,
-      name: "Naruto",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/naruto.png",
-    },
-    {
-      id: 12,
-      name: "Wizard Cloak",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/wizard-cloak.png",
-    },
+  Hats: [
+    { id: 0, name: 'None', image: '/hats/none.png' },
+    { id: 1, name: 'Bandana Ninja', image: '/hats/bandana-ninja.png' },
+    { id: 2, name: 'Biege Tophat', image: '/hats/biege-tophat.png' },
+    { id: 3, name: 'Black Backwards Cap', image: '/hats/black-backwards-cap.png' },
+    { id: 4, name: 'Black Bandana', image: '/hats/black-bandana.png' },
+    { id: 5, name: 'Black Cap', image: '/hats/black-cap.png' },
+    { id: 6, name: 'Black Fedora 1', image: '/hats/black-fedora-1.png' },
+    { id: 7, name: 'Black Fedora 2', image: '/hats/black-fedora-2.png' },
+    { id: 8, name: 'Black Protagonist Hat', image: '/hats/black-protagonist-hat.png' },
+    { id: 9, name: 'Black Tophat', image: '/hats/black-tophat.png' },
+    { id: 10, name: 'Blue Backwards Cap', image: '/hats/blue-backwards-cap.png' },
+    { id: 11, name: 'Blue Cap', image: '/hats/blue-cap.png' },
+    { id: 12, name: 'Blue Punk Hair', image: '/hats/blue-punk-hair.png' },
+    { id: 13, name: 'Cop Hat', image: '/hats/cop-hat.png' },
+    { id: 14, name: 'Cowboy Hat', image: '/hats/cowboy-hat.png' },
+    { id: 15, name: 'Crown', image: '/hats/crown.png' },
+    { id: 16, name: 'Firefighter Hat', image: '/hats/firefighter-hat.png' },
+    { id: 17, name: 'Flower', image: '/hats/flower.png' },
+    { id: 18, name: 'Green Backwards Cap', image: '/hats/green-backwards-cap.png' },
+    { id: 19, name: 'Green Beret', image: '/hats/green-beret.png' },
+    { id: 20, name: 'Green Cap', image: '/hats/green-cap.png' },
+    { id: 21, name: 'Green Punk Hair', image: '/hats/green-punk-hair.png' },
+    { id: 22, name: 'Green Tophat', image: '/hats/green-tophat.png' },
+    { id: 23, name: 'Halo', image: '/hats/halo.png' },
+    { id: 24, name: 'Military Hat', image: '/hats/military-hat.png' },
+    { id: 25, name: 'Mining Hat', image: '/hats/mining-hat.png' },
+    { id: 26, name: 'Mugiwara Hat', image: '/hats/mugiwara-hat.png' },
+    { id: 27, name: 'Orange Bandana', image: '/hats/admiral-hat.png' },
+    { id: 28, name: 'Orange Backwards Cap', image: '/hats/orange-cap-backwards.png' },
+    { id: 29, name: 'Orange Cap', image: '/hats/orange-cap.png' },
+    { id: 30, name: 'Pirate Hat', image: '/hats/pirate-hat.png' },
+    { id: 31, name: 'Purple Backwards Cap', image: '/hats/purple-backwards-cap.png' },
+    { id: 32, name: 'Purple Cap', image: '/hats/purple-cap.png' },
+    { id: 33, name: 'Red Backwards Cap', image: '/hats/red-backwards-cap.png' },
+    { id: 34, name: 'Red Beret', image: '/hats/red-beret.png' },
+    { id: 35, name: 'Red Cap', image: '/hats/red-cap.png' },
+    { id: 36, name: 'Red Punk Hair', image: '/hats/red-punk-hair.png' },
+    { id: 37, name: 'Sailor Cap', image: '/hats/sailor-cap.png' },
+    { id: 38, name: 'Solana Backwards Cap', image: '/hats/solana-backwards-cap.png' },
+    { id: 39, name: 'Solana Cap', image: '/hats/solana-cap.png' },
+    { id: 40, name: 'Sombrero', image: '/hats/sombrero.png' },
+    { id: 41, name: 'Space Warrior', image: '/hats/space-warrior.png' },
+    { id: 42, name: 'Thief Hat', image: '/hats/thief-hat.png' },
+    { id: 43, name: 'Viking Helmet', image: '/hats/viking-helmet.png' },
+    { id: 44, name: 'White Fedora 1', image: '/hats/white-fedora-1.png' },
+    { id: 45, name: 'White Fedora 2', image: '/hats/white-fedora-2.png' },
+    { id: 46, name: 'White Protagonist Hat', image: '/hats/white-protagonist-hat.png' },
+    { id: 47, name: 'Black Hoodie Hood', image: '/hats/black-hoodie-hood.png' },
+    { id: 48, name: 'McBeef', image: '/hats/mcbeef.png' },
+    { id: 49, name: 'McBeret', image: '/hats/mcberet.png' },
+    { id: 50, name: 'McCap', image: '/hats/mccap.png' },
+    { id: 51, name: 'McFedora1', image: '/hats/mcfedora1.png' },
+    { id: 52, name: 'McFedora2', image: '/hats/mcfedora2.png' },
+    { id: 53, name: 'McFish', image: '/hats/mcfish.png' },
+    { id: 54, name: 'McFlower', image: '/hats/mcflower.png' },
+    { id: 55, name: 'McFro', image: '/hats/mcfro.png' },
+    { id: 56, name: 'McHalo', image: '/hats/mchalo.png' },
+    { id: 57, name: 'McHeadset', image: '/hats/mcheadset.png' },
+    { id: 58, name: 'McHero', image: '/hats/mchero.png' },
+    { id: 59, name: 'McKing', image: '/hats/mcking.png' },
+    { id: 60, name: 'McMiner', image: '/hats/mcminer.png' },
+    { id: 61, name: 'McNinja', image: '/hats/mcninja.png' },
+    { id: 62, name: 'McPig', image: '/hats/mcpig.png' },
+    { id: 63, name: 'McPirate', image: '/hats/mcpirate.png' },
+    { id: 64, name: 'McReverse', image: '/hats/mcreverse.png' },
+    { id: 65, name: 'McRobber', image: '/hats/mcrobber.png' },
+    { id: 66, name: 'McTaco', image: '/hats/mctaco.png' },
+    { id: 67, name: 'McTophat', image: '/hats/mctophat.png' },
+    { id: 68, name: 'McViking', image: '/hats/mcviking.png' },
+    { id: 69, name: 'McVisor', image: '/hats/mcvisor.png' },
+    { id: 70, name: 'Buttercat', image: '/hats/buttercat.png' }
+    // add more hats
   ],
-  Head: [
-    { id: 0, name: "None", image: "/head/none.png" },
-    {
-      id: 1,
-      name: "Bandana",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/bandana.png",
-    },
-    {
-      id: 2,
-      name: "Black Bowl Hat",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/black-bowl-hat.png",
-    },
-    {
-      id: 3,
-      name: "Black Cap",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/black-hat.png",
-    },
-    {
-      id: 4,
-      name: "Chad",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/chad.png",
-    },
-    {
-      id: 5,
-      name: "Halo",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/halo.png",
-    },
-    {
-      id: 6,
-      name: "Hightop",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/hightop.png",
-    },
-    {
-      id: 7,
-      name: "Naruto Hair",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/naruto-hair.png",
-    },
-    {
-      id: 8,
-      name: "Red Backwards Cap",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/red-backwards-cap.png",
-    },
-    {
-      id: 9,
-      name: "Sheriff Hat",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/sheriff-hat.png",
-    },
-    {
-      id: 10,
-      name: "Wizard Hat",
-      image:
-        "https://shdw-drive.genesysgo.net/9d2AKRus9judFV5eTpRvFbG6XTkq78XeWn6UTECi6fbn/wizard-hat.png",
-    },
+  Clothes: [
+    { id: 0, name: 'None', image: '/clothes/none.png' },
+    { id: 1, name: 'Beige Smoking', image: '/clothes/biege-smoking.png' },
+    { id: 2, name: 'Biker Vest', image: '/clothes/biker-vest.png' },
+    { id: 3, name: 'Black Kimono', image: '/clothes/black-kimono.png' },
+    { id: 4, name: 'Black Smoking', image: '/clothes/black-smoking.png' },
+    { id: 5, name: 'Green Shirt', image: '/clothes/green-shirt.png' },
+    { id: 6, name: 'Blue Shirt', image: '/clothes/blue-shirt.png' },
+    { id: 7, name: 'Brown Jacket', image: '/clothes/brown-jacket.png' },
+    { id: 8, name: 'Diamond', image: '/clothes/diamond.png' },
+    { id: 9, name: 'Green Jacket', image: '/clothes/green-jacket.png' },
+    { id: 10, name: 'Military Vest', image: '/clothes/military-vest.png' },
+    { id: 11, name: 'Cop Vest', image: '/clothes/cop-vest.png' },
+    { id: 12, name: 'Orange Jacket', image: '/clothes/orange-jacket.png' },
+    { id: 13, name: 'Orange Kimono', image: '/clothes/orange-kimono.png' },
+    { id: 14, name: 'Orange Shirt', image: '/clothes/orange-shirt.png' },
+    { id: 15, name: 'Pirate Vest', image: '/clothes/pirate-vest.png' },
+    { id: 16, name: 'Poncho', image: '/clothes/poncho.png' },
+    { id: 17, name: 'Purple Shirt', image: '/clothes/purple-shirt.png' },
+    { id: 18, name: 'Red Shirt', image: '/clothes/red-shirt.png' },
+    { id: 19, name: 'Roman Armor', image: '/clothes/roman-armor.png' },
+    { id: 20, name: 'Sailor Vest', image: '/clothes/sailor-vest.png' },
+    { id: 21, name: 'White Shirt', image: '/clothes/white-shirt.png' },
+    { id: 22, name: 'Green Smoking', image: '/clothes/green-smoking.png' },
+    { id: 23, name: 'Black Hoodie', image: '/clothes/black-hoodie.png' }
+    // add more clothes
   ],
-  Special: [{ id: 0, name: "None", image: "/special/none.png" }],
-  Mystery: [{ id: 0, name: "None", image: "/mystery/none.png" }],
+  Eyes: [
+    { id: 0, name: 'None', image: '/eyes/none.png' },
+    { id: 1, name: 'VR', image: '/eyes/vr.png' },
+    { id: 2, name: 'Gold Glasses', image: '/eyes/gold-glasses.png' },
+    { id: 3, name: 'Green Glasses', image: '/eyes/green-glasses.png' },
+    { id: 4, name: 'Laser Eyes', image: '/eyes/laser-eyes.png' },
+    { id: 5, name: '3D Glasses', image: '/eyes/3d-glasses.png' },
+    { id: 6, name: 'Purple Glasses', image: '/eyes/purple-glasses.png' },
+    { id: 7, name: 'Solana Vipers', image: '/eyes/solana-vipers.png' },
+    { id: 8, name: 'Vipers', image: '/eyes/vipers.png' },
+    { id: 9, name: 'Cool Glasses', image: '/eyes/cool-glasses.png' },
+    { id: 10, name: 'Yellow Glasses', image: '/eyes/yellow-glasses.png' },
+    { id: 11, name: 'Jup Glasses', image: '/eyes/jup-glasses.png'}
+    // add more eyes
+  ],
+  Mouth: [
+    { id: 0, name: 'None', image: '/mouth/none.png' },
+    { id: 1, name: 'Cigarette', image: '/mouth/cigarette.png' },
+    { id: 2, name: 'Pipe', image: '/mouth/pipe.png' },
+    { id: 3, name: 'Vape', image: '/mouth/vape.png' },
+    // add more mouths
+  ],
+  Special: [
+    { id: 0, name: 'None', image: '/special/none.png'},
+    { id: 1, name: 'Gun', image: '/special/gun.png'},
+    { id: 2, name: 'Guns', image: '/special/guns.png'},
+    { id: 3, name: 'Space Blue', image: '/special/space-blue.png'},
+    { id: 4, name: 'Space Green', image: '/special/space-green.png'},
+    { id: 5, name: 'Space Orange', image: '/special/space-orange.png'},
+    { id: 6, name: 'Space Purple', image: '/special/space-purple.png'},
+    { id: 7, name: 'Space Red', image: '/special/space-red.png'},
+    { id: 8, name: 'Space Yellow', image: '/special/space-yellow.png'},
+    { id: 9, name: 'FU', image: '/special/fu.png'},
+    { id: 10, name: 'Aladdin', image: '/special/aladdin.png'},
+    { id: 11, name: 'Alien', image: '/special/alien.png'},
+    { id: 12, name: 'Batman', image: '/special/batman.png'},
+    { id: 13, name: 'Chef', image: '/special/chef.png'},
+    { id: 14, name: 'Dark', image: '/special/dark.png'},
+    { id: 15, name: 'Detective', image: '/special/detective.png'},
+    { id: 16, name: 'Jason', image: '/special/jason.png'},
+    { id: 17, name: 'Luigi', image: '/special/luigi.png'},
+    { id: 18, name: 'Mario', image: '/special/mario.png'},
+    { id: 19, name: 'MIB', image: '/special/mib.png'},
+    { id: 20, name: 'Nurse', image: '/special/nurse.png'},
+    { id: 21, name: 'Orange', image: '/special/orange.png'},
+    { id: 22, name: 'Pirate', image: '/special/pirate.png'},
+    { id: 23, name: 'Pocoyo', image: '/special/pocoyo.png'},
+    { id: 24, name: 'Pumpkin', image: '/special/pumpkin.png'},
+    { id: 25, name: 'Purple', image: '/special/purple.png'},
+    { id: 26, name: 'Red', image: '/special/red.png'},
+    { id: 27, name: 'Robber', image: '/special/robber.png'},
+    { id: 28, name: 'Skeleton', image: '/special/skeleton.png'},
+    { id: 29, name: 'Snake', image: '/special/snake.png'},
+    { id: 30, name: 'Solana', image: '/special/solana.png'},
+    { id: 31, name: 'Wario', image: '/special/wario.png'},
+    { id: 32, name: 'Wizard', image: '/special/wizard.png'},
+    { id: 33, name: 'Zombie', image: '/special/zombie.png'},
+    { id: 34, name: 'Wanna Be Doge', image: '/special/wanna-be-doge.png'},
+  ],
+  Vr: [
+    { id: 0, name: 'None', image: '/vr/none.png' },
+    { id: 1, name: 'VR Blue Eyes', image: '/vr/vr-blue.png' },
+    { id: 2, name: 'VR Gray Eyes', image: '/vr/vr-gray.png' },
+    { id: 3, name: 'VR Lime Eyes', image: '/vr/vr-lime.png' },
+    { id: 4, name: 'VR Orange Eyes', image: '/vr/vr-orange.png' },
+    { id: 5, name: 'VR Pink Eyes', image: '/vr/vr-pink.png' },
+    { id: 6, name: 'VR Solana Eyes', image: '/vr/vr-solana.png' },
+    { id: 7, name: 'VR Viper Eyes', image: '/vr/vr-viper.png' },
+    { id: 8, name: 'VR Gold Eyes', image: '/vr/vr-gold.png' },
+    { id: 9, name: 'VR', image: '/vr/vr.png' },
+    { id: 10, name: 'VR Purple', image: '/vr/vr-purple.png' },
+    { id: 11, name: 'VR Yellow', image: '/vr/vr-yellow.png' },
+    { id: 12, name: 'VR Gold Cream', image: '/vr/vr-gold-cream.png' },
+
+  ]
 };
