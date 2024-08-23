@@ -76,7 +76,7 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
                   <div
                     className={`${londrina.className} my-auto text-black text-4xl`}
                   >
-                    customize your ohmie.
+                    customize your doge.
                   </div>
                 </div>
               </div>

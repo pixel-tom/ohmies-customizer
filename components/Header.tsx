@@ -15,16 +15,17 @@ const Header = () => {
         <Image
           src={"/ohmies-logo.png"}
           alt={""}
-          width={40}
-          height={40}
+          width={60}
+          height={60}
           className="rounded-md my-auto"
         />
+        <p className={`${inter.className} text-2xl my-auto`}>Dogesigner.</p>
         
       </div>
 
       <div className="flex items-center relative">
         <a
-          href="https://twitter.com/_ohmies"
+          href="https://x.com/thedogecapital"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center ml-4"
@@ -58,18 +59,19 @@ const Header = () => {
           </svg>
         </a>
         <div className="flex items-center ml-4 relative">
-          <Image
+          <a href="https://discord.gg/nuNYvKwy"
+          target="_blank"
+          rel="noopener noreferrer">
+            <Image
             src="/discord.png"
             width={35}
             height={35}
             alt=""
-            className="opacity-40"
+            
           />
-          <div
-            className={`${inter.className} absolute bottom-3 right-0 bg-purple-400 text-white font-semibold text-sm px-2 py-1 rounded-lg transform translate-x-1/2 -translate-y-1/2`}
-          >
-            Soon
-          </div>
+          </a>
+          
+          
         </div>
       </div>
     </nav>

@@ -14,7 +14,7 @@ const Footer = () => {
       <div />
       <div />
       <p className="text-gray-600">
-        © All rights reserved by ohmies. By @_ohmies.
+        © All rights reserved by The Doge Capital. By @thedogecapital.
       </p>
     </nav>
   );
