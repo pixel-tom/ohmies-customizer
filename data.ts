@@ -98,7 +98,8 @@ export const characterParts: CharacterParts = {
     // { id: 69, name: 'McVisor', image: '/hats/mcvisor.png' },
     { id: 48, name: 'Gray Hoodie Hood', image: '/hats/gray-hoodie-hood.png' },
     { id: 49, name: 'Buttercat', image: '/hats/buttercat.png' },
-    { id: 50, name: 'Buttercat Two', image: '/hats/buttercat-two.png' }
+    { id: 50, name: 'Buttercat Two', image: '/hats/buttercat-two.png' },
+    { id: 51, name: 'Santa Hat', image: '/hats/santa-hat.png' },
     // add more hats
   ],
   Clothes: [
