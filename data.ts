@@ -127,7 +127,19 @@ export const characterParts: CharacterParts = {
     { id: 21, name: 'White Shirt', image: '/clothes/white-shirt.png' },
     { id: 22, name: 'Green Smoking', image: '/clothes/green-smoking.png' },
     { id: 23, name: 'Black Hoodie', image: '/clothes/black-hoodie.png' },
-    { id: 24, name: 'Gray Hoodie', image: '/clothes/gray-hoodie.png' }
+    { id: 24, name: 'Gray Hoodie', image: '/clothes/gray-hoodie.png' },
+    { id: 25, name: 'Alien Tail', image: '/clothes/alien-tail.png' },
+    { id: 26, name: 'Brown Tail', image: '/clothes/brown-tail.png' },
+    { id: 27, name: 'Dark Tail', image: '/clothes/dark-tail.png' },
+    { id: 28, name: 'Red Tail', image: '/clothes/red-tail.png' },
+    { id: 29, name: 'Orange Tail', image: '/clothes/orange-tail.png' },
+    { id: 30, name: 'Purple Tail', image: '/clothes/purple-tail.png' },
+    { id: 31, name: 'Skeleton Tail', image: '/clothes/skeleton-tail.png' },
+    { id: 32, name: 'Solana Tail', image: '/clothes/solana-tail.png' },
+    { id: 33, name: 'Zombie Tail', image: '/clothes/zombie-tail.png' },
+    { id: 34, name: 'Electric Tail', image: '/clothes/electric-tail.png' },
+    { id: 35, name: 'Fire Tail', image: '/clothes/fire-tail.png' },
+    { id: 36, name: 'Water Tail', image: '/clothes/water-tail.png' },
     // add more clothes
   ],
   Eyes: [
