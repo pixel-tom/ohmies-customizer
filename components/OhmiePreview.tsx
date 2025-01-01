@@ -137,8 +137,8 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
         Clothes: getRandomPart("Clothes"),
         Eyes: getRandomPart("Eyes"),
         Mouth: getRandomPart("Mouth"),
-        Special: getRandomPart("Special"),
-        Vr: getRandomPart("Vr"),
+        Special: characterParts.Special[0],
+        Vr: characterParts.Vr[0],
       };
       setSelectedParts(newSelectedParts);
       setLoading(false);
