@@ -4,7 +4,7 @@ import { characterParts } from "../data";
 import OhmiePreview from "../components/OhmiePreview";
 import { CharacterParts, SelectedCharacterParts } from "../types";
 import OhmieTraitSelector from "../components/OhmieTraitSelector";
-import { londrina, vt } from "@/constants/fonts";
+import { vt } from "@/constants/fonts";
 
 interface HomeProps {
   setBgImage: (imageUrl: string) => void;
@@ -33,26 +33,6 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
     }));
   };
 
-  const getRandomPart = (category: keyof CharacterParts) => {
-    const parts = characterParts[category];
-    const randomIndex = Math.floor(Math.random() * parts.length);
-    return parts[randomIndex];
-  };
-
-  const randomizeCharacter = () => {
-    const newSelectedParts: SelectedCharacterParts = {
-      Background: getRandomPart("Background"),
-      Type: getRandomPart("Type"),
-      Hats: getRandomPart("Hats"),
-      Clothes: getRandomPart("Clothes"),
-      Eyes: getRandomPart("Eyes"),
-      Mouth: getRandomPart("Mouth"),
-      Special: getRandomPart("Special"),
-      Vr: getRandomPart("Vr"),
-    };
-    setSelectedParts(newSelectedParts);
-  };
-
   const previewRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -67,14 +47,10 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
             />
           </div>
           <div className="w-full md:w-7/12 mx-auto my-auto rounded-2xl">
-            
-            
             <div className="w-full grid grid-cols-2 gap-3 p-3 mx-auto">
               {Object.keys(characterParts).map((category) => (
                 <div key={category} className="space-y-1">
-                  <h2
-                    className={`font-semibold text-gray-500 ${vt.className}`}
-                  >
+                  <h2 className={`font-semibold text-gray-500 ${vt.className}`}>
                     {category}
                   </h2>
                   <OhmieTraitSelector

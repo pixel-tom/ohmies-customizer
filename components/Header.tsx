@@ -1,13 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-import { Londrina_Solid } from "next/font/google";
-
-const inter = Londrina_Solid({
-  subsets: ["latin"],
-  weight: "400",
-});
-
 const Header = () => {
   return (
     <nav className="z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 bg-none ">
@@ -18,7 +11,7 @@ const Header = () => {
           width={60}
           height={60}
           className="rounded-md my-auto"
-        />        
+        />
       </div>
 
       <div className="flex items-center relative">
@@ -57,19 +50,13 @@ const Header = () => {
           </svg>
         </a>
         <div className="flex items-center ml-4 relative">
-          <a href="https://discord.gg/nuNYvKwy"
-          target="_blank"
-          rel="noopener noreferrer">
-            <Image
-            src="/discord.png"
-            width={35}
-            height={35}
-            alt=""
-            
-          />
+          <a
+            href="https://discord.gg/nuNYvKwy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src="/discord.png" width={35} height={35} alt="" />
           </a>
-          
-          
         </div>
       </div>
     </nav>

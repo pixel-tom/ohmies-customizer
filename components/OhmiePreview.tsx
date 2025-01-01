@@ -6,20 +6,30 @@ import { vt, londrina } from "@/constants/fonts";
 
 interface Props {
   selectedParts: SelectedCharacterParts;
-  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedCharacterParts>>;
+  setSelectedParts: React.Dispatch<
+    React.SetStateAction<SelectedCharacterParts>
+  >;
   previewRef: React.RefObject<HTMLDivElement>;
 }
 
-const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previewRef }) => {
+const OhmiePreview: React.FC<Props> = ({
+  selectedParts,
+  setSelectedParts,
+  previewRef,
+}) => {
   const [loading, setLoading] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState<{[key: string]: boolean}>({});
-  const imageCache = useRef<{[key: string]: HTMLImageElement}>({});
+  const [imagesLoaded, setImagesLoaded] = useState<{ [key: string]: boolean }>(
+    {}
+  );
+  const imageCache = useRef<{ [key: string]: HTMLImageElement }>({});
 
   useEffect(() => {
     const preloadImages = async () => {
       setLoading(true);
-      const categories = Object.keys(selectedParts) as (keyof SelectedCharacterParts)[];
-      
+      const categories = Object.keys(
+        selectedParts
+      ) as (keyof SelectedCharacterParts)[];
+
       const loadImage = (src: string): Promise<HTMLImageElement> => {
         return new Promise((resolve, reject) => {
           if (imageCache.current[src]) {
@@ -42,11 +52,11 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
           categories.map(async (category) => {
             const part = selectedParts[category];
             await loadImage(part.image);
-            setImagesLoaded(prev => ({...prev, [category]: true}));
+            setImagesLoaded((prev) => ({ ...prev, [category]: true }));
           })
         );
       } catch (error) {
-        console.error('Failed to preload images:', error);
+        console.error("Failed to preload images:", error);
       } finally {
         setLoading(false);
       }
@@ -100,7 +110,9 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
           if (
             navigator.share &&
             navigator.canShare &&
-            navigator.canShare({ files: [new File([blob], "ohmie.png", { type: "image/png" })] })
+            navigator.canShare({
+              files: [new File([blob], "ohmie.png", { type: "image/png" })],
+            })
           ) {
             try {
               await navigator.share({
@@ -162,7 +174,8 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
         {Object.keys(selectedParts)
           .filter((category) => category !== "Background")
           .map((category) => {
-            const part = selectedParts[category as keyof SelectedCharacterParts];
+            const part =
+              selectedParts[category as keyof SelectedCharacterParts];
             return (
               <NextImage
                 key={category}
@@ -171,8 +184,12 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
                 layout="fill"
                 objectFit="responsive"
                 quality={80}
-                priority={category === 'Type' || category === 'Background'}
-                loading={category === 'Type' || category === 'Background' ? 'eager' : 'lazy'}
+                priority={category === "Type" || category === "Background"}
+                loading={
+                  category === "Type" || category === "Background"
+                    ? "eager"
+                    : "lazy"
+                }
               />
             );
           })}
@@ -182,13 +199,17 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
           onClick={handleRandomize}
           className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2 shadow-md"
         >
-          <p className={`my-auto text-gray-200 ${londrina.className}`}>surprise.</p>
+          <p className={`my-auto text-gray-200 ${londrina.className}`}>
+            surprise.
+          </p>
         </button>
         <button
           onClick={handleDownload}
           className="flex flex-row bg-none border border-[#444444] bg-[#272727] hover:bg-[#222222] hover:text-gray-200 text-gray-200 text-lg py-2 px-5 rounded mt-4 mb-4 mx-2 shadow-md"
         >
-          <p className={`my-auto text-gray-200 ${londrina.className}`}>download.</p>
+          <p className={`my-auto text-gray-200 ${londrina.className}`}>
+            download.
+          </p>
         </button>
       </div>
     </div>

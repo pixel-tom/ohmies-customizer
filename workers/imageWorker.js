@@ -8,8 +8,8 @@ self.onmessage = async (event) => {
   try {
     const imagePromises = selectedPartKeys.map(async (category) => {
       const part = selectedParts[category];
-      const response = await fetch(part.image, { mode: 'cors' });
-      if (!response.ok) throw new Error('Failed to load image');
+      const response = await fetch(part.image, { mode: "cors" });
+      if (!response.ok) throw new Error("Failed to load image");
       const blob = await response.blob();
       const imageBitmap = await createImageBitmap(blob);
       return imageBitmap;
@@ -23,7 +23,7 @@ self.onmessage = async (event) => {
       context.drawImage(image, 0, 0);
     });
 
-    const blob = await canvas.convertToBlob({ type: 'image/png' });
+    const blob = await canvas.convertToBlob({ type: "image/png" });
     self.postMessage({ blob });
   } catch (error) {
     self.postMessage({ error: error.message });

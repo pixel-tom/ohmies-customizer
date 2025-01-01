@@ -60,9 +60,7 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
   const dropdownPosition = calculateDropdownPosition();
 
   return (
-    <div
-      className={`relative inline-block text-left w-full ${vt.className}`}
-    >
+    <div className={`relative inline-block text-left w-full ${vt.className}`}>
       <div className="w-full shadow-md shadow-gray-400/10" ref={selectorRef}>
         <button
           type="button"
@@ -140,10 +138,13 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
   );
 };
 
-const MemoizedOhmieTraitSelector = React.memo(OhmieTraitSelector, 
+const MemoizedOhmieTraitSelector = React.memo(
+  OhmieTraitSelector,
   (prevProps, nextProps) => {
-    return prevProps.selected === nextProps.selected &&
-           prevProps.parts === nextProps.parts;
+    return (
+      prevProps.selected === nextProps.selected &&
+      prevProps.parts === nextProps.parts
+    );
   }
 );
 

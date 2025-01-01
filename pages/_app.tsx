@@ -1,14 +1,14 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 
-const Header = dynamic(() => import('@/components/Header'), {
-  ssr: true
+const Header = dynamic(() => import("@/components/Header"), {
+  ssr: true,
 });
 
-const Footer = dynamic(() => import('@/components/Footer'), {
-  ssr: true
+const Footer = dynamic(() => import("@/components/Footer"), {
+  ssr: true,
 });
 
 function App({ Component, pageProps }: AppProps) {

@@ -12,7 +12,7 @@ export const getCachedImage = async (url: string): Promise<string> => {
     imageCache[url] = objectUrl;
     return objectUrl;
   } catch (error) {
-    console.error('Error caching image:', error);
+    console.error("Error caching image:", error);
     return url;
   }
-}; 
+};
