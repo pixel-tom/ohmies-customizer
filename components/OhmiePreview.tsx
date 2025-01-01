@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NextImage from "next/image";
 import { CharacterParts, SelectedCharacterParts } from "../types";
 import { characterParts } from "@/data";
@@ -12,6 +12,48 @@ interface Props {
 
 const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previewRef }) => {
   const [loading, setLoading] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<{[key: string]: boolean}>({});
+  const imageCache = useRef<{[key: string]: HTMLImageElement}>({});
+
+  useEffect(() => {
+    const preloadImages = async () => {
+      setLoading(true);
+      const categories = Object.keys(selectedParts) as (keyof SelectedCharacterParts)[];
+      
+      const loadImage = (src: string): Promise<HTMLImageElement> => {
+        return new Promise((resolve, reject) => {
+          if (imageCache.current[src]) {
+            resolve(imageCache.current[src]);
+            return;
+          }
+
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            imageCache.current[src] = img;
+            resolve(img);
+          };
+          img.onerror = reject;
+        });
+      };
+
+      try {
+        await Promise.all(
+          categories.map(async (category) => {
+            const part = selectedParts[category];
+            await loadImage(part.image);
+            setImagesLoaded(prev => ({...prev, [category]: true}));
+          })
+        );
+      } catch (error) {
+        console.error('Failed to preload images:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    preloadImages();
+  }, [selectedParts]);
 
   const handleDownload = async () => {
     setLoading(true);
@@ -55,8 +97,11 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
 
       canvas.toBlob(async (blob) => {
         if (blob) {
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-          if (isMobile && navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], "ohmie.png", { type: "image/png" })] })) {
+          if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [new File([blob], "ohmie.png", { type: "image/png" })] })
+          ) {
             try {
               await navigator.share({
                 files: [new File([blob], "ohmie.png", { type: "image/png" })],
@@ -126,7 +171,8 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
                 layout="fill"
                 objectFit="responsive"
                 quality={80}
-                loading="lazy"
+                priority={category === 'Type' || category === 'Background'}
+                loading={category === 'Type' || category === 'Background' ? 'eager' : 'lazy'}
               />
             );
           })}

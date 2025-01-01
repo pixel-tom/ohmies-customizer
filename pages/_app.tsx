@@ -1,8 +1,15 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from "react";
+
+const Header = dynamic(() => import('@/components/Header'), {
+  ssr: true
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  ssr: true
+});
 
 function App({ Component, pageProps }: AppProps) {
   const [bgImage, setBgImage] = useState<string>("");

@@ -140,4 +140,11 @@ const OhmieTraitSelector: React.FC<Props> = ({ parts, selected, onSelect }) => {
   );
 };
 
-export default OhmieTraitSelector;
+const MemoizedOhmieTraitSelector = React.memo(OhmieTraitSelector, 
+  (prevProps, nextProps) => {
+    return prevProps.selected === nextProps.selected &&
+           prevProps.parts === nextProps.parts;
+  }
+);
+
+export default MemoizedOhmieTraitSelector;
