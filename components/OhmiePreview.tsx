@@ -55,11 +55,8 @@ const OhmiePreview: React.FC<Props> = ({ selectedParts, setSelectedParts, previe
 
       canvas.toBlob(async (blob) => {
         if (blob) {
-          if (
-            navigator.share &&
-            navigator.canShare &&
-            navigator.canShare({ files: [new File([blob], "ohmie.png", { type: "image/png" })] })
-          ) {
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+          if (isMobile && navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], "ohmie.png", { type: "image/png" })] })) {
             try {
               await navigator.share({
                 files: [new File([blob], "ohmie.png", { type: "image/png" })],

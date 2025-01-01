@@ -67,20 +67,7 @@ const Home: NextPage<HomeProps> = ({ setBgImage }) => {
             />
           </div>
           <div className="w-full md:w-7/12 mx-auto my-auto rounded-2xl">
-            <div className="ml-4">
-              <p className={`${vt.className} text-xl text-gray-600`}>
-                Choose your style!
-              </p>
-              <div className="flex justify-between mb-4">
-                <div className="flex flex-row gap-3">
-                  <div
-                    className={`${londrina.className} my-auto text-black text-4xl`}
-                  >
-                    customize your doge.
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             
             <div className="w-full grid grid-cols-2 gap-3 p-3 mx-auto">
               {Object.keys(characterParts).map((category) => (

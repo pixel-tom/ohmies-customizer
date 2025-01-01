@@ -18,9 +18,7 @@ const Header = () => {
           width={60}
           height={60}
           className="rounded-md my-auto"
-        />
-        <p className={`${inter.className} text-2xl my-auto`}>Dogesigner.</p>
-        
+        />        
       </div>
 
       <div className="flex items-center relative">
