@@ -72,7 +72,7 @@ const OhmiePreview: React.FC<Props> = ({
       const canvas = document.createElement("canvas");
       const context = canvas.getContext("2d");
       const selectedPartKeys = Object.keys(selectedParts);
-      if (selectedPartKeys.length === 0) return; // No selected parts
+      if (selectedPartKeys.length === 0) return;
 
       // Download background image separately
       const backgroundImage = new Image();
@@ -107,7 +107,11 @@ const OhmiePreview: React.FC<Props> = ({
 
       canvas.toBlob(async (blob) => {
         if (blob) {
+          // Check if it's a mobile device using userAgent
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
           if (
+            isMobile &&
             navigator.share &&
             navigator.canShare &&
             navigator.canShare({
@@ -122,6 +126,7 @@ const OhmiePreview: React.FC<Props> = ({
               console.error("Sharing failed", error);
             }
           } else {
+            // Direct download for desktop/PC
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
             link.href = url;
